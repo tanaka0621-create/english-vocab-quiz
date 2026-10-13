@@ -1,0 +1,477 @@
+<title>社会人英語道場</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#eef2f1;--card:#ffffff;--ink:#1d2b3a;--muted:#5b6977;--line:#d6dde1;
+  --ai:#1a5f9e;--ai-soft:#e0eaf7;--ok:#1a7a4a;--ok-soft:#e3f5eb;
+  --red:#c0392b;--red-soft:#fbe9e5;
+  --bar:#c9d3dc;--gold:#c8911a;--gold-soft:#fbf1d9;--gold-ink:#8a5f00;
+  --shadow:0 1px 3px rgba(29,43,58,.08),0 4px 14px rgba(29,43,58,.06);
+  --font:"Noto Sans JP",system-ui,sans-serif;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --paper:#131920;--card:#1c242e;--ink:#e7ecef;--muted:#9ba7b3;--line:#2d3945;
+  --ai:#6fa8dc;--ai-soft:#1e3550;--ok:#4caf82;--ok-soft:#1b3a2a;
+  --red:#e05a4a;--red-soft:#3a2420;
+  --bar:#34414e;--gold:#d9a634;--gold-soft:#3a3020;--gold-ink:#f0c35a;
+  --shadow:0 1px 3px rgba(0,0,0,.3);
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#131920;--card:#1c242e;--ink:#e7ecef;--muted:#9ba7b3;--line:#2d3945;
+  --ai:#6fa8dc;--ai-soft:#1e3550;--ok:#4caf82;--ok-soft:#1b3a2a;
+  --red:#e05a4a;--red-soft:#3a2420;
+  --bar:#34414e;--gold:#d9a634;--gold-soft:#3a3020;--gold-ink:#f0c35a;
+  --shadow:0 1px 3px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:580px;margin:0 auto;padding:12px 16px 100px}
+button{font-family:inherit;font-size:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--ai);outline-offset:2px}
+h1,h2,h3{margin:0;text-wrap:balance}
+.muted{color:var(--muted)}
+.top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:8px 0 16px}
+.brand{font-size:22px;font-weight:700}
+.brand small{display:block;font-size:12px;color:var(--muted);font-weight:400;letter-spacing:.06em}
+.streak{font-size:13px;color:var(--muted);text-align:right}
+.streak b{font-size:22px;color:var(--red)}
+.start{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.bigbtn{border:0;border-radius:14px;padding:14px 12px;text-align:left;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:2px;min-height:78px;width:100%}
+.bigbtn b{font-size:17px}
+.bigbtn span{font-size:12px;color:var(--muted)}
+.bigbtn.primary{background:var(--ai);color:#fff}
+.bigbtn.primary span{color:rgba(255,255,255,.85)}
+.bigbtn:disabled{opacity:.5;cursor:default}
+.toggle-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.toggle-btn{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.toggle-btn.on{background:var(--ai);border-color:var(--ai);color:#fff}
+.sec-title{font-size:13px;color:var(--muted);letter-spacing:.1em;margin:4px 0 8px}
+.cats{display:flex;flex-direction:column;gap:8px}
+.cat{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;text-align:left;width:100%}
+.cat .nm{font-weight:700;font-size:17px}
+.cat .ds{font-size:12px;color:var(--muted);grid-column:1}
+.cat .due{grid-row:1/3;grid-column:2;align-self:center;font-size:12px;color:var(--muted);text-align:right}
+.cat .due b{display:block;font-size:20px;color:var(--red)}
+.cat .due b.zero{color:var(--muted)}
+.meter{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-top:4px}
+.meter .track{flex:1;height:6px;background:var(--bar);border-radius:3px;overflow:hidden;display:flex}
+.meter .fill{height:100%;background:var(--ai)}
+.meter .fill2{height:100%;background:var(--ai);opacity:.3}
+.nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom,0px);z-index:5}
+.nav-in{display:flex;max-width:580px;width:100%}
+.nav button{flex:1;border:0;background:none;padding:10px 4px 12px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:3px}
+.nav button .ic{font-size:20px;line-height:1.1}
+.nav button[aria-current="page"]{color:var(--ai)}
+.qtop{display:flex;align-items:center;gap:10px;padding:6px 0 12px}
+.qtop .quit{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:6px 12px;font-size:14px}
+.qtop .prog{flex:1;height:8px;background:var(--bar);border-radius:4px;overflow:hidden}
+.qtop .prog div{height:100%;background:var(--ai);transition:width .25s}
+.qtop .pc{font-size:14px;color:var(--muted);min-width:3.5em;text-align:right}
+.qcard{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px;border:1px solid var(--line);position:relative}
+.qbadge{display:inline-flex;gap:6px;align-items:center;margin-bottom:8px}
+.qbadge .cat-tag{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--ai-soft);color:var(--ai);font-weight:700}
+.qbadge .dir-tag{font-size:12px;padding:2px 10px;border-radius:999px;background:var(--gold-soft);color:var(--gold-ink);font-weight:700}
+.qins{font-size:14px;color:var(--muted);margin:0 0 10px}
+.qword{font-size:32px;font-weight:700;line-height:1.4;word-break:break-all;margin-bottom:4px}
+.qword.en{font-size:26px;letter-spacing:.02em}
+.qsub{font-size:14px;color:var(--muted)}
+.mark{position:absolute;top:8px;right:14px;font-size:60px;line-height:1;font-weight:700;pointer-events:none;animation:pop .2s ease-out}
+.mark.ok{color:var(--ok)}
+.mark.ng{color:var(--red)}
+@keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+.answers{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.opt{border:2px solid var(--line);background:var(--card);border-radius:12px;padding:12px 14px;text-align:left;font-size:18px;font-weight:600;line-height:1.4;width:100%}
+.opt.en-opt{font-size:16px}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{opacity:.5;text-decoration:line-through}
+.reveal{margin-top:14px;padding:14px;border-radius:12px;background:var(--ai-soft)}
+.reveal .pair{font-size:18px;font-weight:700;margin-top:4px}
+.reveal .ex{font-size:14px;color:var(--muted);margin-top:4px}
+.speak-btn{border:0;background:none;font-size:22px;cursor:pointer;padding:4px 8px;border-radius:8px;vertical-align:middle;transition:background .15s}
+.speak-btn:hover{background:var(--line)}
+.speak-btn.playing{animation:pulse .5s infinite alternate}
+@keyframes pulse{from{opacity:.4}to{opacity:1}}
+.tts-hint{font-size:12px;color:var(--muted);margin-top:6px}
+.example{font-size:14px;font-style:italic;color:var(--ink);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);line-height:1.6}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.act{border:0;border-radius:12px;padding:14px;font-weight:700;font-size:17px;background:var(--ai);color:#fff;width:100%}
+.act.red{background:var(--red)}
+.act.ghost{background:var(--card);color:var(--ink);border:2px solid var(--line)}
+.tip{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 0}
+.score{text-align:center;padding:14px 0}
+.score .big{font-size:56px;font-weight:700;color:var(--ai);line-height:1.1}
+.score .big small{font-size:20px;color:var(--ink)}
+.score .msg{color:var(--muted);margin-top:6px}
+.list{display:flex;flex-direction:column;gap:8px;margin:10px 0 18px}
+.li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.li .q{font-size:13px;color:var(--muted)}
+.li .a{font-size:18px;font-weight:700}
+.li .pair{font-size:13px;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:10px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:24px}
+.stat span{font-size:12px;color:var(--muted)}
+.setting{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.setting label{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:13px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.note{font-size:13px;color:var(--muted)}
+.tbl{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px;margin-bottom:18px}
+.tbl th,.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl th{font-size:12px;color:var(--muted);font-weight:500}
+.note-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;background:var(--card);border-radius:12px;border:1px dashed var(--line)}
+</style>
+
+<div class="wrap">
+  <section id="home">
+    <header class="top">
+      <div class="brand"><small>社会人英語</small>英語道場</div>
+      <div class="streak">連続<br><b id="streak">0</b> 日</div>
+    </header>
+    <div class="sec-title">出題モード</div>
+    <div class="toggle-row" id="modeToggle">
+      <button class="toggle-btn on" data-mode="mix">🔀 ミックス</button>
+      <button class="toggle-btn" data-mode="jpToEn">🇯🇵→🇬🇧 日→英</button>
+      <button class="toggle-btn" data-mode="enToJp">🇬🇧→🇯🇵 英→日</button>
+    </div>
+    <div class="sec-title">問題数</div>
+    <div class="toggle-row" id="countToggle">
+      <button class="toggle-btn" data-count="5">5問 (約2分)</button>
+      <button class="toggle-btn on" data-count="10">10問 (約5分)</button>
+      <button class="toggle-btn" data-count="20">20問 (約10分)</button>
+    </div>
+    <div class="start">
+      <button class="bigbtn primary" id="btnReview"><b>📚 今日の復習</b><span id="reviewInfo">0問</span></button>
+      <button class="bigbtn" id="btnMix"><b>🎲 おまかせ</b><span>全カテゴリから</span></button>
+    </div>
+    <div class="sec-title">カテゴリをえらぶ</div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="qtop">
+      <button class="quit" id="quit">やめる</button>
+      <div class="prog"><div id="progBar"></div></div>
+      <div class="pc" id="progTxt"></div>
+    </div>
+    <div class="qcard" id="qcard"></div>
+  </section>
+
+  <section id="result" hidden>
+    <div class="score">
+      <div class="muted" id="resCat"></div>
+      <div class="big" id="resScore"></div>
+      <div class="msg" id="resMsg"></div>
+    </div>
+    <div class="stack">
+      <button class="act red" id="resRetry">まちがえた問題をもう一度</button>
+      <button class="act ghost" id="resHome">ホームへもどる</button>
+    </div>
+    <div class="sec-title" style="margin-top:20px" id="resListTitle">まちがえた問題</div>
+    <div class="list" id="resList"></div>
+  </section>
+
+  <section id="note" hidden>
+    <header class="top"><div class="brand"><small>何度もまちがえた順</small>まちがいノート</div></header>
+    <button class="act red" id="noteStart" style="margin-bottom:12px">この中からとく</button>
+    <div class="note-list" id="noteList"></div>
+  </section>
+
+  <section id="rec" hidden>
+    <header class="top"><div class="brand"><small>がんばりの記録</small>記録と設定</div></header>
+    <div class="stats">
+      <div class="stat"><b id="stTotal">0</b><span>といた数</span></div>
+      <div class="stat"><b id="stRate">-</b><span>正解率</span></div>
+      <div class="stat"><b id="stDays">0</b><span>学習した日</span></div>
+    </div>
+    <div style="overflow-x:auto"><table class="tbl" id="recTbl"></table></div>
+    <div class="setting">
+      <label>画面の色</label>
+      <div class="chips" id="themeChips">
+        <button class="chip" data-t="light">明るい</button>
+        <button class="chip" data-t="dark">暗い</button>
+        <button class="chip" data-t="auto">端末に合わせる</button>
+      </div>
+    </div>
+    <div class="setting">
+      <label>記録をすべて消す</label>
+      <button class="act ghost" id="resetBtn">記録をリセットする</button>
+      <div id="resetConfirm" hidden class="row2">
+        <button class="act red" id="resetYes">本当に消す</button>
+        <button class="act ghost" id="resetNo">やめる</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav-in">
+    <button data-go="home" aria-current="page"><span class="ic">🏠</span>ホーム</button>
+    <button data-go="note"><span class="ic">✕</span>まちがい</button>
+    <button data-go="rec"><span class="ic">📊</span>記録</button>
+  </div>
+</nav>
+
+<script>
+const RAW_BIZ=`達成する|achieve|v.|We achieved our quarterly sales target.\n承認する|approve|v.|The manager approved the new budget.\n割り当てる|assign|v.|She was assigned to lead the project.\n協力する|collaborate|v.|Both teams collaborated to meet the deadline.\n確認する|confirm|v.|Please confirm your attendance by email.\n貢献する|contribute|v.|He contributed greatly to the team's success.\n調整する|coordinate|v.|We coordinated efforts across all departments.\n締め切り|deadline|n.|The submission deadline is next Friday.\n委任する|delegate|v.|A good leader knows how to delegate.\n下書き・草案|draft|n.|Please review this draft before the meeting.\n評価する|evaluate|v.|We will evaluate all proposals carefully.\n実行する|execute|v.|The strategy was executed without any issues.\n促進する|facilitate|v.|She facilitated the discussion between teams.\n予測する|forecast|v.|We forecast a 10% increase in revenue.\n目標|goal|n.|Our goal is to expand into new markets.\n実施する|implement|v.|The new policy will be implemented next month.\n改善する|improve|v.|We need to improve our customer response time.\n知らせる|inform|v.|Please inform me of any changes immediately.\n主導権・取り組み|initiative|n.|She took the initiative to solve the problem.\n立ち上げる|launch|v.|We will launch the new product in spring.\n管理する|manage|v.|He manages a team of twenty employees.\n交渉する|negotiate|v.|They negotiated better terms with the supplier.\n目的・目標|objective|n.|Our objective is to increase market share.\n最適化する|optimize|v.|We optimized the process to reduce costs.\n概要|overview|n.|Could you give us a brief overview?\n発表する|present|v.|She presented the quarterly results to the board.\n優先事項|priority|n.|Customer satisfaction is our top priority.\n提案書|proposal|n.|Please submit your proposal by end of week.\n推薦する|recommend|v.|I recommend this approach for the best results.\n解決する|resolve|v.|We resolved the issue before the deadline.\n見直す|review|v.|Please review the contract carefully.\n戦略|strategy|n.|We need a clear growth strategy for next year.\n提出する|submit|v.|Please submit your expense report by Friday.\n要約する|summarize|v.|Could you summarize the key points for us?\n緊急の|urgent|adj.|This is an urgent matter that requires attention.\n目標・ターゲット|target|n.|Our sales target for this quarter is $2M.\nタスク・仕事|task|n.|Please complete this task by tomorrow morning.\n更新する|update|v.|I will update you on the progress by noon.\n分析する|analyze|v.|We analyzed customer feedback to find trends.\n達成・業績|achievement|n.|Winning the award was a major achievement.\n適応する|adapt|v.\n承認する|authorize|v.\nベンチマーク|benchmark|n.\nブレインストーミングする|brainstorm|v.\n能力・容量|capacity|n.\n遵守する|comply|v.\n一貫した|consistent|adj.\n専念する|dedicate|v.\n定義する|define|v.\n実証する|demonstrate|v.\n決定する|determine|v.\n効率的な|efficient|adj.\n確立する|establish|v.\n見積もる|estimate|v.\n拡大する|expand|v.\n柔軟な|flexible|adj.\n生み出す|generate|v.\n特定する|identify|v.\n最大化する|maximize|v.\n測定する|measure|v.\nマイルストーン|milestone|n.\n最小化する|minimize|v.\nモニタリングする|monitor|v.\nアウトライン・概要|outline|n.\n参加する|participate|v.\nプロセス・工程|process|n.\nプロジェクト|project|n.\n定量化する|quantify|v.\n削減する|reduce|v.\n成功する|succeed|v.\n監督する|supervise|v.\n持続させる|sustain|v.\n検証する|verify|v.\nフォローアップする|follow up|v.\n成し遂げる|accomplish|v.\n先読みする|anticipate|v.\n手配する|arrange|v.\n査定する|assess|v.\n完成させる|complete|v.\n実施する・行う|conduct|v.\nカスタマイズする|customize|v.\n納品する|deliver|v.\n設計する|design|v.\n配布する|distribute|v.\n推進する|drive|v.\n強化する|enhance|v.\n確保する|ensure|v.\n策定する|formulate|v.\n収集する|gather|v.\n統合する|integrate|v.\n調査する|investigate|v.\n率いる|lead|v.\n活用する|leverage|v.\n維持する|maintain|v.\n動機づける|motivate|v.\n運営する|operate|v.\n防ぐ|prevent|v.\n宣伝する|promote|v.\n保護する|protect|v.\n強化・補強する|reinforce|v.\n修正・改訂する|revise|v.\n満足させる|satisfy|v.\n選択する|select|v.\n構成する|structure|v.\n変革する|transform|v.\n有効化・検証する|validate|v.`;
+const RAW_WORK=`議題・アジェンダ|agenda|n.|What's on the agenda for today's meeting?\n年次の|annual|adj.|The annual report will be published next week.\n予約・約束|appointment|n.|I have a doctor's appointment on Thursday.\n出席|attendance|n.|Attendance at the seminar is mandatory.\nボーナス・賞与|bonus|n.|She received a performance bonus this year.\n支店・部門|branch|n.|Our Osaka branch opened last April.\n予算|budget|n.|We need to stay within the project budget.\nキャリア|career|n.|He built a successful career in finance.\n同僚|colleague|n.|She is a trusted colleague and a great friend.\n契約|contract|n.|Please sign the contract before Friday.\n部門・部署|department|n.|The marketing department launched a new campaign.\n書類・文書|document|n.|Please send all relevant documents by email.\n従業員|employee|n.|All employees must attend the safety training.\n雇用主|employer|n.|Your employer must provide a safe workplace.\n経費・費用|expense|n.|Submit your business expense report monthly.\n本社|headquarters|n.|The company's headquarters is in Tokyo.\n採用する|hire|v.|We plan to hire five new engineers this year.\n面接|interview|n.|I have a job interview on Monday morning.\n請求書|invoice|n.|Please send the invoice to our accounting team.\n休暇|leave|n.|She is on maternity leave until March.\n経営・管理|management|n.|Good management is key to business success.\n会議|meeting|n.|The weekly meeting starts at 9 a.m.\nメモ・連絡書|memo|n.|A memo was sent to all staff about the change.\n残業|overtime|n.|He worked overtime to finish the report.\n業績・成果|performance|n.|Her performance this quarter was outstanding.\n人事|personnel|n.|Contact the personnel department for details.\n職位・ポジション|position|n.|She applied for the senior manager position.\n手続き・手順|procedure|n.|Please follow the standard procedure carefully.\n生産性|productivity|n.|Remote work has increased our productivity.\n昇進|promotion|n.|He was given a promotion after five years.\n採用する|recruit|v.|We are actively recruiting talented engineers.\n辞職する|resign|v.|She decided to resign from her current position.\n定年退職|retirement|n.|He is planning his retirement next spring.\n給与|salary|n.|The salary is negotiable based on experience.\n上司・監督者|supervisor|n.|My supervisor gave me positive feedback.\n研修|training|n.|New employees attend training for two weeks.\n転勤・異動|transfer|n.|He requested a transfer to the London office.\n手当・補助|allowance|n.\n人事考課|appraisal|n.\n応募者|applicant|n.\n手数料・歩合|commission|n.\n報酬|compensation|n.\nコンプライアンス|compliance|n.\n会議・会合|conference|n.\n社外秘の|confidential|adj.\n連携・協力|cooperation|n.\n企業の|corporate|adj.\n取締役|director|n.\n事業部|division|n.\nダウンサイジング|downsizing|n.\nフルタイム|full-time|adj.\nインターン|intern|n.\n一時解雇|layoff|n.\n産休|maternity leave|n.\nパートタイム|part-time|adj.\n給与計算|payroll|n.\n年金|pension|n.\n試用期間|probation|n.\n四半期の|quarterly|adj.\n昇給|raise|n.\nリモートワーク|remote work|n.\n組織再編|restructure|v.\nセミナー|seminar|n.\n業務量|workload|n.\n欠勤・不在|absence|n.\n団体交渉|bargaining|n.\n通勤する|commute|v.\nコンセンサス・合意|consensus|n.\n企業文化|corporate culture|n.\n権限委譲|delegation|n.\n解雇|dismissal|n.\n紛争・争い|dispute|n.\nエンゲージメント・関与|engagement|n.\nフレックスタイム|flexible hours|n.\n階層・ヒエラルキー|hierarchy|n.\n職務記述書|job description|n.\n労働|labor|n.\nメンタリング|mentoring|n.\n士気・モラール|morale|n.\n退職予告期間|notice period|n.\nオンボーディング|onboarding|n.\n外注する|outsource|v.\n同僚評価|peer review|n.\n退職金・割増賃金|severance pay|n.\nスキル・技術|skill|n.\nチームワーク|teamwork|n.\n在職期間|tenure|n.\n雇用終了・解雇|termination|n.\n離職率|turnover|n.\nワークショップ|workshop|n.\n組合・労働組合|labor union|n.\n福利厚生|welfare|n.`;
+const RAW_COMM=`発表・お知らせ|announcement|n.|The CEO made an important announcement today.\n謝罪する|apologize|v.|I sincerely apologize for the inconvenience.\n明確にする|clarify|v.|Could you clarify what you mean by that?\n苦情・不満|complaint|n.|We received a complaint from a client.\n遅延・延期|delay|n.|There will be a slight delay in delivery.\n説明する|explain|v.|Please explain the reason for the change.\nフィードバック|feedback|n.|I would appreciate your feedback on this report.\nためらう|hesitate|v.|Don't hesitate to contact me if you need help.\n示す|indicate|v.|The data indicates a rise in customer demand.\n問い合わせる|inquire|v.|I am writing to inquire about the job opening.\n遮る・妨げる|interrupt|v.|Please don't interrupt while someone is speaking.\n紹介する|introduce|v.|Let me introduce our new team member, Kenji.\n招待|invitation|n.|Thank you for the invitation to the conference.\n言及する|mention|v.|He mentioned the issue during the meeting.\n説得する|persuade|v.|She persuaded the client to extend the contract.\n延期する|postpone|v.|We had to postpone the meeting due to illness.\n褒める|praise|v.|The manager praised the team for their hard work.\nプレゼンテーション|presentation|n.|Her presentation was clear and convincing.\n断る|refuse|v.|He politely refused to sign the agreement.\n思い出させる|remind|v.|Please remind me about the deadline tomorrow.\n返信する|reply|v.|Please reply to the email by end of business.\n要求する|request|v.|I would like to request a meeting this week.\n応答する|respond|v.|Please respond to my message at your earliest convenience.\n提案・提言|suggestion|n.|Do you have any suggestions for improvement?\n理解|understanding|n.|Thank you for your patience and understanding.\n主張する|assert|v.\n相談する|consult|v.\n批評する|critique|v.\n議論する|debate|v.\n熟考する|deliberate|v.\n概要を説明する|brief|v.\n強調する|emphasize|v.\n引き込む・関与する|engage|v.\n言い換える|paraphrase|v.\n通知する|notify|v.\n翻訳する|translate|v.\n了承する|acknowledge|v.\n宣言する|declare|v.\nあいまいな|vague|adj.\n率直な|straightforward|adj.\n礼儀正しい|polite|adj.\n批判的な|critical|adj.\n建設的な|constructive|adj.\n全会一致の|unanimous|adj.\n仲介する|mediate|v.\n合意する|agree|v.\n反対する|disagree|v.\n交渉する|negotiate|v.\n説明責任|accountability|n.\n透明性|transparency|n.\n傾聴|active listening|n.\nボディーランゲージ|body language|n.\n伝達手段|channel|n.\n一貫した|coherent|adj.\n簡潔な|concise|adj.\n信頼性|credibility|n.\n事後報告する|debrief|v.\n対話|dialogue|n.\n効果的な|effective|adj.\n共感|empathy|n.\n励ます|encourage|v.\nエチケット・礼儀|etiquette|n.\nフォーマルな・正式な|formal|adj.\nインフォーマルな・非公式な|informal|adj.\n洞察・見識|insight|n.\n交流する|interact|v.\n講義・講演|lecture|n.\n論理|logic|n.\n進行する|moderate|v.\n非言語の|nonverbal|adj.\n結果・成果|outcome|n.\n説得力|persuasion|n.\nピッチ・売り込み|pitch|n.\n積極的な・能動的な|proactive|adj.\n信頼関係|rapport|n.\n決議・解決|resolution|n.\n構造化された|structured|adj.\nトーン・口調|tone|n.\n言語の・口頭の|verbal|adj.`;
+const RAW_IT=`アクセスする|access|v.|You need a password to access this system.\nアプリケーション|application|n.|Please download the mobile application first.\nバックアップ|backup|n.|Always keep a backup of your important files.\nクラウド|cloud|n.|We store all our data in the cloud.\nデータベース|database|n.|The customer database is updated daily.\nダウンロードする|download|v.|Please download the latest version of the software.\n暗号化する|encrypt|v.|All sensitive data must be encrypted.\nエラー|error|n.|An error occurred while processing your request.\nファイアウォール|firewall|n.|The firewall protects our network from attacks.\nハードウェア|hardware|n.|We need to upgrade our server hardware.\nインストールする|install|v.|Please install the security patch immediately.\nインターフェース|interface|n.|The new user interface is more intuitive.\nログインする|log in|v.|Please log in with your company email address.\nマルウェア|malware|n.|The computer was infected with malware.\nネットワーク|network|n.|The office network is down for maintenance.\nパスワード|password|n.|Change your password every three months.\nプラットフォーム|platform|n.|We built our service on a cloud platform.\nプライバシー|privacy|n.|We take user privacy very seriously.\nセキュリティ|security|n.|Cybersecurity is a top priority for all companies.\nサーバー|server|n.|The server will be down for maintenance tonight.\nソフトウェア|software|n.|This software automates our reporting process.\nストレージ・記憶容量|storage|n.|We need more cloud storage for our files.\nアップロードする|upload|v.|Please upload the document to the shared folder.\nウイルス|virus|n.|A virus was detected on the company laptop.\nワイヤレス・無線|wireless|adj.|The office has wireless internet throughout.\nアルゴリズム|algorithm|n.\n人工知能|artificial intelligence|n.\n自動化|automation|n.\n帯域幅|bandwidth|n.\nキャッシュ|cache|n.\nデバッグする|debug|v.\nデプロイする|deploy|v.\nドメイン|domain|n.\nフレームワーク|framework|n.\nインフラ|infrastructure|n.\n統合|integration|n.\n保守・メンテナンス|maintenance|n.\n移行|migration|n.\nオープンソース|open source|n.\n最適化する|optimize|v.\nパッチを当てる|patch|v.\nプロトタイプ|prototype|n.\nリポジトリ|repository|n.\nスケーラブルな|scalable|adj.\n同期する|synchronize|v.\nテンプレート|template|n.\n仮想の|virtual|adj.\nワークフロー|workflow|n.\nAPI|API|n.\nクラウドコンピューティング|cloud computing|n.\nサイバー攻撃|cyberattack|n.\nデータ分析|data analysis|n.\nデジタル変革|digital transformation|n.\nアジャイル|agile|adj.\nアナリティクス・分析|analytics|n.\nアーキテクチャ|architecture|n.\n認証|authentication|n.\nビッグデータ|big data|n.\nブロックチェーン|blockchain|n.\nボット|bot|n.\nバグ・不具合|bug|n.\n設定・構成|configuration|n.\nコンテナ|container|n.\nサイバーセキュリティ|cybersecurity|n.\nデブオプス|DevOps|n.\nエンドポイント|endpoint|n.\n機能・フィーチャー|feature|n.\nイテレーション・繰り返し|iteration|n.\n遅延・レイテンシー|latency|n.\n機械学習|machine learning|n.\nマイクロサービス|microservice|n.\nパイプライン|pipeline|n.\n本番環境|production environment|n.\nクエリ・問い合わせ|query|n.\nリファクタリングする|refactor|v.\nリリース|release|n.\nレンダリング|rendering|n.\nランタイム|runtime|n.\nスクリプト|script|n.\nスプリント|sprint|n.\nテスト|testing|n.\nトークン|token|n.\nバージョン管理|version control|n.\nウェブフック|webhook|n.\nUI/UX（ユーザー体験）|UI/UX|n.`;
+const RAW_FIN=`資産|asset|n.|Real estate is considered a valuable asset.\n監査|audit|n.|The annual audit will be conducted next month.\n残高・バランス|balance|n.|Please check your account balance regularly.\n破産|bankruptcy|n.|The company filed for bankruptcy last year.\n債券|bond|n.|Government bonds are considered low-risk investments.\n資本|capital|n.|We need more capital to expand the business.\nキャッシュフロー|cash flow|n.|Strong cash flow is essential for growth.\nコスト・費用|cost|n.|We need to reduce our operating costs.\n信用・クレジット|credit|n.|A good credit score is important for loans.\n通貨|currency|n.|The exchange rate between currencies fluctuates daily.\n負債・借金|debt|n.|The company reduced its debt significantly this year.\n赤字・不足|deficit|n.|The government is facing a large budget deficit.\n配当|dividend|n.|Shareholders received a higher dividend this year.\n経済|economy|n.|The global economy is recovering slowly.\n輸出|export|n.|Japan's automobile exports increased last quarter.\n財務・金融|finance|n.|She works in corporate finance.\n資金|fund|n.|We raised a new fund for startup investment.\n収入|income|n.|His annual income increased after the promotion.\nインフレ|inflation|n.|Rising inflation is affecting consumer spending.\n利子・利息|interest|n.|The interest rate on the loan is 3% annually.\n投資する|invest|v.|He decided to invest in renewable energy.\n負債|liability|n.|The company's liabilities exceed its assets.\n損失|loss|n.|The firm reported a net loss last quarter.\n利益|profit|n.|The company reported record profits this year.\n景気後退|recession|n.|The economy entered a recession due to the crisis.\n収益|revenue|n.|Total revenue grew by 15% compared to last year.\nリスク|risk|n.|All investments carry some level of financial risk.\n株主|shareholder|n.|Shareholders approved the merger at the annual meeting.\n株・在庫|stock|n.|The company's stock price rose sharply today.\n補助金|subsidy|n.|The government provides subsidies for clean energy.\n黒字・余剰|surplus|n.|The country recorded a trade surplus this year.\n税金|tax|n.|Corporation tax must be filed annually.\n貿易・取引|trade|n.|International trade has increased significantly.\n価値|value|n.|The value of the property doubled in ten years.\n買収|acquisition|n.\n減価償却|depreciation|n.\nデューデリジェンス|due diligence|n.\n株式|equity|n.\n財政の|fiscal|adj.\nヘッジ|hedge|n.\n指数|index|n.\nレバレッジ|leverage|n.\n流動性|liquidity|n.\n合併|merger|n.\n住宅ローン|mortgage|n.\n純資産|net worth|n.\n投資ポートフォリオ|portfolio|n.\n投資利益率|return on investment|n.\n証券|securities|n.\n企業評価|valuation|n.\nベンチャーキャピタル|venture capital|n.\n利回り|yield|n.\n融資|loan|n.\n為替レート|exchange rate|n.\n財務諸表|financial statement|n.\n損益計算書|income statement|n.\n賃金・ウェージ|wage|n.\n発生主義|accrual|n.\n償却|amortization|n.\n年次報告書|annual report|n.\n値上がり・増価|appreciation|n.\n裁定取引|arbitrage|n.\n貸借対照表|balance sheet|n.\n弱気市場|bear market|n.\n強気市場|bull market|n.\nバイアウト|buyout|n.\n担保|collateral|n.\n商品・コモディティ|commodity|n.\n複利|compound interest|n.\n社債|corporate bond|n.\n信用格付け|credit rating|n.\nデフォルト・債務不履行|default|n.\n分散投資・多角化|diversification|n.\n会計年度|fiscal year|n.\n固定資産|fixed asset|n.\n粗利益率|gross margin|n.\nヘッジファンド|hedge fund|n.\n新規株式公開|IPO|n.\n時価総額|market cap|n.\n投資信託|mutual fund|n.\n純利益|net income|n.\n間接費|overhead|n.\nプレミアム・割増|premium|n.\n元本|principal|n.\nプライベートエクイティ|private equity|n.\n四半期報告書|quarterly report|n.\n空売り|short selling|n.\nスプレッド・利ざや|spread|n.\n財務省・国債|treasury|n.\n引き受ける|underwrite|v.\n償却・損金算入|write-off|n.`;
+const RAW_SOC=`気候変動|climate change|n.|Climate change is the most urgent global challenge.\n論争・議論|controversy|n.|The new policy sparked significant controversy.\n危機|crisis|n.|The country is facing a serious economic crisis.\n文化|culture|n.|Cultural diversity enriches our society.\n民主主義|democracy|n.|Free elections are the foundation of democracy.\n多様性|diversity|n.|Workplace diversity leads to better outcomes.\n平等|equality|n.|We are committed to gender equality in our company.\n倫理|ethics|n.|Business ethics must be upheld at all times.\nグローバル・世界的な|global|adj.|We need a global response to the pandemic.\n政府|government|n.|The government announced new environmental policies.\n移民・入国|immigration|n.|Immigration policy is a complex political issue.\n影響・インパクト|impact|n.|The decision had a major impact on the economy.\n不平等|inequality|n.|Income inequality is growing in many countries.\n国際的な|international|adj.|This requires international cooperation to solve.\nメディア|media|n.|The media plays a crucial role in democracy.\nパンデミック|pandemic|n.|The pandemic changed how we work and live.\n政策|policy|n.|The new health policy takes effect next year.\n政治|politics|n.|Politics affects every aspect of our daily lives.\n人口|population|n.|Japan's population is declining due to low birth rates.\n貧困|poverty|n.|Many organizations work to reduce global poverty.\n抗議|protest|n.|Thousands joined the protest against the new law.\n改革|reform|n.|The education reform aims to improve outcomes.\n規制|regulation|n.|Stricter financial regulations were introduced.\n社会|society|n.|Technology has transformed modern society greatly.\n持続可能な|sustainable|adj.|We must adopt sustainable business practices.\n福祉|welfare|n.|The government increased welfare spending this year.\n説明責任|accountability|n.\n擁護・支持|advocacy|n.\n市民権|civil rights|n.\n汚職・腐敗|corruption|n.\n外交|diplomacy|n.\n差別|discrimination|n.\n権限を与える|empower|v.\n環境の|environmental|adj.\n男女平等|gender equality|n.\nグローバリゼーション|globalization|n.\n人道的な|humanitarian|adj.\n司法・公正|justice|n.\n立法|legislation|n.\n多国間の|multilateral|adj.\nナショナリズム|nationalism|n.\n慈善活動|philanthropy|n.\n再生可能な|renewable|adj.\n主権|sovereignty|n.\n条約|treaty|n.\n失業|unemployment|n.\n都市化|urbanization|n.\n脆弱性|vulnerability|n.\n市民社会|civil society|n.\n人権|human rights|n.\nNGO（非政府組織）|NGO|n.\n難民|refugee|n.\n積極的差別是正措置|affirmative action|n.\n亡命・庇護|asylum|n.\n権威主義的な|authoritarian|adj.\nボイコット|boycott|n.\n国勢調査|census|n.\n市民権・国籍|citizenship|n.\n連立・連合|coalition|n.\n憲法|constitution|n.\n条約・慣習|convention|n.\n森林破壊|deforestation|n.\n言論の自由|freedom of speech|n.\n地政学|geopolitics|n.\n草の根の|grassroots|adj.\n人身売買|human trafficking|n.\nイデオロギー|ideology|n.\n先住民の|indigenous|adj.\n司法の|judicial|adj.\n労働権|labor rights|n.\nロビー活動をする|lobby|v.\n周縁化する|marginalize|v.\n平和維持|peacekeeping|n.\nプロパガンダ|propaganda|n.\n人種差別|racism|n.\n制裁|sanction|n.\n社会正義|social justice|n.\nステレオタイプ|stereotype|n.\n労働組合|trade union|n.\n蜂起・反乱|uprising|n.\n拒否権|veto|n.\n内部告発者|whistleblower|n.`;
+
+const CATS=[
+  {id:'biz',name:'ビジネス基本',desc:'目標・戦略・業務の基本動詞・名詞',raw:RAW_BIZ},
+  {id:'work',name:'職場・仕事',desc:'採用・給与・会議・職場のことば',raw:RAW_WORK},
+  {id:'comm',name:'コミュニケーション',desc:'依頼・報告・メールの表現',raw:RAW_COMM},
+  {id:'it',name:'IT・テクノロジー',desc:'デジタル時代の必須英単語',raw:RAW_IT},
+  {id:'fin',name:'金融・経済',desc:'ビジネスニュースに出る経済用語',raw:RAW_FIN},
+  {id:'soc',name:'社会・時事',desc:'グローバルなニュースを読む',raw:RAW_SOC},
+];
+const lines=s=>s.trim().split('\n').map(l=>l.trim()).filter(Boolean).map(l=>l.split('|'));
+const ITEMS=[];
+for(const c of CATS) lines(c.raw).forEach((p,i)=>ITEMS.push({id:c.id+i,cat:c.id,jp:p[0],en:p[1],pos:p[2]||'',ex:p[3]||''}));
+const CATMAP=Object.fromEntries(CATS.map(c=>[c.id,c]));
+const byCat=c=>ITEMS.filter(it=>it.cat===c);
+
+let currentMode='mix', currentCount=10;
+const KEY='eigodojo-v1';
+let S={items:{},days:[],total:0,correct:0};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+function dayNum(d){d=d||new Date();return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);}
+const TODAY=()=>dayNum();
+const INTERVAL=[0,1,3,7,14,30];
+const st=id=>S.items[id];
+const isDue=id=>{const x=st(id);return x&&x.due<=TODAY();};
+function record(id,ok){
+  const isNew=!S.items[id];
+  const x=S.items[id]||{box:0,due:0,wrong:0,right:0};
+  const onTime=isNew||x.due<=TODAY();
+  if(ok){x.right++;if(onTime){x.box=Math.min(x.box+1,5);x.due=TODAY()+INTERVAL[x.box];}}
+  else{x.box=1;x.wrong++;x.due=TODAY()+INTERVAL[1];}
+  x.last=TODAY();x.lastOk=ok;
+  S.items[id]=x;S.total++;if(ok)S.correct++;
+  if(!S.days.includes(TODAY()))S.days.push(TODAY());
+  save();
+}
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const pick=(arr,n,not=[])=>shuffle(arr.filter(v=>!not.includes(v))).slice(0,n);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+
+// ===== テキスト読み上げ (TTS) =====
+let ttsBtn=null;
+function speak(text, btn){
+  if(!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt=new SpeechSynthesisUtterance(text);
+  utt.lang='en-US'; utt.rate=0.85; utt.pitch=1;
+  if(btn){ btn.classList.add('playing'); utt.onend=()=>btn.classList.remove('playing'); }
+  window.speechSynthesis.speak(utt);
+}
+function makeSpeakBtn(enText){
+  const btn=document.createElement('button');
+  btn.className='speak-btn'; btn.title='英語を読み上げる';
+  btn.textContent='🔊'; btn.type='button';
+  btn.onclick=e=>{e.stopPropagation();speak(enText,btn);};
+  return btn;
+}
+
+function build(it,forceDir){
+  const pool=ITEMS.filter(p=>p.cat===it.cat&&p.id!==it.id);
+  let dir=forceDir||(currentMode==='mix'?(Math.random()<.5?'jpToEn':'enToJp'):currentMode);
+  if(dir==='jpToEn'){
+    const opts=shuffle([it.en,...pick(pool.map(p=>p.en),3,[it.en])]);
+    return{it,dir,question:it.jp,answer:it.en,opts,isEnOpts:true};
+  }else{
+    const opts=shuffle([it.jp,...pick(pool.map(p=>p.jp),3,[it.jp])]);
+    return{it,dir,question:it.en,answer:it.jp,opts,isEnOpts:false};
+  }
+}
+
+let SES=null;
+function makeSet(pool,n){
+  const due=shuffle(pool.filter(it=>isDue(it.id))).sort((a,b)=>(st(a.id)?.due||0)-(st(b.id)?.due||0));
+  const fresh=shuffle(pool.filter(it=>!st(it.id)));
+  let set=[...due,...fresh].slice(0,n);
+  if(set.length<n){const rest=pool.filter(it=>!set.includes(it)).sort((a,b)=>((st(a.id)?.box)||0)-((st(b.id)?.box)||0));set=set.concat(rest.slice(0,n-set.length));}
+  return shuffle(set);
+}
+function startSession(items,label){
+  if(!items.length)return;
+  SES={queue:items.map(it=>build(it)),idx:0,label,first:new Map(),retried:new Set(),size:items.length};
+  show('quiz');renderQ();
+}
+function startCat(c){startSession(makeSet(byCat(c),currentCount),CATMAP[c].name);}
+
+function renderQ(){
+  const q=SES.queue[SES.idx];
+  const done=SES.first.size;
+  $('progBar').style.width=(done/SES.size*100)+'%';
+  $('progTxt').textContent=`${Math.min(done+1,SES.size)} / ${SES.size}`;
+  const dirLabel=q.dir==='jpToEn'?'日本語 → 英語':'英語 → 日本語';
+  let h=`<div class="qbadge"><span class="cat-tag">${esc(CATMAP[q.it.cat].name)}</span><span class="dir-tag">${dirLabel}</span></div>`;
+  h+=`<div class="qins">次の${q.dir==='enToJp'?'英語':'日本語'}を${q.dir==='enToJp'?'日本語':'英語'}で答えてください</div>`;
+  h+=`<div class="qword${q.dir==='enToJp'?' en':''}" id="qwordEl">${esc(q.question)}</div>`;
+  if(q.dir==='enToJp'&&q.it.pos)h+=`<div class="qsub">${esc(q.it.pos)}</div>`;
+  h+=`<div id="ansArea"></div>`;
+  $('qcard').innerHTML=h;
+  // EN→JP のとき、英語の横に読み上げボタン表示
+  if(q.dir==='enToJp'){
+    const wordEl=$('qwordEl');
+    wordEl.appendChild(document.createTextNode(' '));
+    wordEl.appendChild(makeSpeakBtn(q.it.en));
+  }
+  const A=$('ansArea');
+  A.innerHTML=`<div class="answers">${q.opts.map((o,i)=>`<button class="opt${q.isEnOpts?' en-opt':''}" data-i="${i}">${esc(o)}</button>`).join('')}</div>`;
+  A.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+    const v=q.opts[+b.dataset.i],ok=v===q.answer;
+    A.querySelectorAll('.opt').forEach(x=>{x.disabled=true;const t=q.opts[+x.dataset.i];if(t===q.answer)x.classList.add('right');else if(x===b)x.classList.add('wrong');});
+    answer(ok);
+  });
+}
+function answer(ok){
+  const q=SES.queue[SES.idx],id=q.it.id;
+  if(!SES.first.has(id)){SES.first.set(id,ok);record(id,ok);}
+  if(!ok&&!SES.retried.has(id)){SES.retried.add(id);SES.queue.push(build(q.it,q.dir));}
+  const card=$('qcard');
+  const m=document.createElement('div');m.className='mark '+(ok?'ok':'ng');m.textContent=ok?'○':'✕';card.appendChild(m);
+  const A=$('ansArea');
+  const r=document.createElement('div');r.className='reveal';
+  const exHtml=q.it.ex?`<div class="example" id="revEx">${esc(q.it.ex)}</div>`:'';
+  r.innerHTML=`<div class="pair" id="revPair"><span id="revEn">${esc(q.it.en)}</span> ＝ ${esc(q.it.jp)}</div><div class="ex">${esc(q.it.pos)}</div>${exHtml}`;
+  A.appendChild(r);
+  // 英語単語の読み上げボタン
+  const revPair=$('revPair');
+  const sb=makeSpeakBtn(q.it.en);
+  revPair.appendChild(document.createTextNode(' '));
+  revPair.appendChild(sb);
+  // 例文がある場合：例文読み上げボタンも追加
+  if(q.it.ex){
+    const revEx=$('revEx');
+    const sbEx=makeSpeakBtn(q.it.ex);
+    sbEx.title='例文を読み上げる';
+    revEx.appendChild(document.createTextNode(' '));
+    revEx.appendChild(sbEx);
+  }
+  // 自動読み上げ（英語単語）
+  speak(q.it.en, sb);
+  const nx=document.createElement('div');nx.className='answers';nx.style.marginTop='12px';
+  const last=SES.idx>=SES.queue.length-1;
+  nx.innerHTML=`<button class="act${ok?'':' red'}" id="next">${last?'結果を見る':'次へ'}</button>`;
+  A.appendChild(nx);
+  if(!ok&&!last)A.insertAdjacentHTML('beforeend','<p class="tip">この問題は最後にもう一度出ます</p>');
+  $('next').focus({preventScroll:true});
+  $('next').onclick=()=>{SES.idx++;if(SES.idx>=SES.queue.length)finish();else renderQ();};
+}
+function finish(){
+  const total=SES.first.size,right=[...SES.first.values()].filter(Boolean).length;
+  const wrongIds=[...SES.first].filter(([,v])=>!v).map(([k])=>k);
+  $('resCat').textContent=SES.label;
+  $('resScore').innerHTML=`${right}<small> / ${total} 問正解</small>`;
+  const pct=right/total;
+  $('resMsg').textContent=pct<.5?'もう少し！復習を続けよう':pct<.75?'よく頑張りました！':pct<1?'かなり正確です！':'パーフェクト！完璧です🎉';
+  const wrongItems=wrongIds.map(id=>ITEMS.find(it=>it.id===id)).filter(Boolean);
+  const rl=$('resList');
+  if(wrongItems.length){
+    $('resListTitle').textContent='まちがえた問題';
+    rl.innerHTML=wrongItems.map(it=>`<div class="li"><div class="q">${esc(CATMAP[it.cat].name)}</div><div class="a">${esc(it.en)}</div><div class="pair">${esc(it.jp)}</div></div>`).join('');
+    $('resRetry').disabled=false;
+    $('resRetry').onclick=()=>startSession(wrongItems,'まちがえた問題');
+  }else{
+    $('resListTitle').textContent='';
+    rl.innerHTML='<div class="empty">まちがいなし！完璧です</div>';
+    $('resRetry').disabled=true;
+  }
+  renderHome();show('result');
+}
+
+function renderHome(){
+  $('streak').textContent=(()=>{let cnt=0,d=TODAY();while(S.days.includes(d--))cnt++;return cnt;})();
+  const dueItems=ITEMS.filter(it=>isDue(it.id));
+  $('reviewInfo').textContent=`${dueItems.length}問`;
+  $('btnReview').disabled=!dueItems.length;
+  $('btnReview').onclick=()=>startSession(shuffle(dueItems).slice(0,currentCount),'復習');
+  $('btnMix').onclick=()=>startSession(makeSet(ITEMS,currentCount),'おまかせ');
+  const cats=$('cats');
+  cats.innerHTML=CATS.map(c=>{
+    const pool=byCat(c.id),total=pool.length;
+    const done=pool.filter(it=>st(it.id)).length;
+    const due=pool.filter(it=>isDue(it.id)).length;
+    const mastered=pool.filter(it=>(st(it.id)?.box||0)>=3).length;
+    return `<button class="cat" data-cat="${c.id}">
+      <div class="nm">${esc(c.name)}</div>
+      <div class="ds">${esc(c.desc)}</div>
+      <div class="due"><b${due===0?' class="zero"':''}>${due}</b>復習</div>
+      <div class="meter"><div class="track"><div class="fill" style="width:${mastered/total*100}%"></div><div class="fill2" style="width:${(done-mastered)/total*100}%"></div></div><span>${mastered}/${total}</span></div>
+    </button>`;
+  }).join('');
+  cats.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>startCat(b.dataset.cat));
+}
+
+function renderNote(){
+  const list=$('noteList');
+  const wrong=ITEMS.filter(it=>(st(it.id)?.wrong||0)>0).sort((a,b)=>(st(b.id)?.wrong||0)-(st(a.id)?.wrong||0));
+  if(!wrong.length){list.innerHTML='<div class="empty">まちがい記録なし</div>';$('noteStart').disabled=true;return;}
+  $('noteStart').disabled=false;
+  $('noteStart').onclick=()=>startSession(shuffle(wrong).slice(0,currentCount),'まちがいノート');
+  list.innerHTML=wrong.map(it=>`<div class="li"><div class="q">${esc(CATMAP[it.cat].name)} · <span style="color:var(--red)">${st(it.id).wrong}回まちがい</span></div><div class="a">${esc(it.en)}</div><div class="pair">${esc(it.jp)}</div></div>`).join('');
+}
+
+function renderRec(){
+  $('stTotal').textContent=S.total;
+  $('stRate').textContent=S.total?Math.round(S.correct/S.total*100)+'%':'-';
+  $('stDays').textContent=S.days.length;
+  const tbl=$('recTbl');
+  const rows=CATS.map(c=>{
+    const pool=byCat(c.id),done=pool.filter(it=>st(it.id)).length;
+    const m=pool.filter(it=>(st(it.id)?.box||0)>=3).length;
+    const r=pool.filter(it=>isDue(it.id)).length;
+    return `<tr><td>${esc(c.name)}</td><td>${m}/${pool.length}</td><td>${done}</td><td>${r}</td></tr>`;
+  });
+  tbl.innerHTML=`<thead><tr><th>カテゴリ</th><th>習得</th><th>学習済</th><th>要復習</th></tr></thead><tbody>${rows.join('')}</tbody>`;
+  const th=localStorage.getItem('eigodojo-theme')||'auto';
+  $('themeChips').querySelectorAll('.chip').forEach(c=>{
+    c.setAttribute('aria-pressed',c.dataset.t===th?'true':'false');
+    c.onclick=()=>{const t=c.dataset.t;localStorage.setItem('eigodojo-theme',t);applyTheme(t);$('themeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.t===t?'true':'false'));};
+  });
+  $('resetBtn').onclick=()=>{$('resetConfirm').hidden=false;};
+  $('resetNo').onclick=()=>{$('resetConfirm').hidden=true;};
+  $('resetYes').onclick=()=>{S={items:{},days:[],total:0,correct:0};save();$('resetConfirm').hidden=true;renderRec();renderHome();};
+}
+function applyTheme(t){if(t==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',t);}
+applyTheme(localStorage.getItem('eigodojo-theme')||'auto');
+
+const PAGES=['home','quiz','result','note','rec'];
+function show(id){PAGES.forEach(p=>{const el=$(p);if(el)el.hidden=p!==id;});}
+$('nav').querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{
+  const go=b.dataset.go;
+  $('nav').querySelectorAll('[data-go]').forEach(x=>x.removeAttribute('aria-current'));
+  b.setAttribute('aria-current','page');
+  if(go==='note')renderNote();
+  if(go==='rec')renderRec();
+  show(go);
+}));
+$('quit').onclick=()=>{show('home');renderHome();};
+$('resHome').onclick=()=>{show('home');renderHome();};
+$('modeToggle').querySelectorAll('.toggle-btn').forEach(b=>b.onclick=()=>{
+  $('modeToggle').querySelectorAll('.toggle-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');currentMode=b.dataset.mode;
+});
+$('countToggle').querySelectorAll('.toggle-btn').forEach(b=>b.onclick=()=>{
+  $('countToggle').querySelectorAll('.toggle-btn').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');currentCount=+b.dataset.count;
+});
+renderHome();
+</script>
