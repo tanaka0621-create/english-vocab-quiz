@@ -1,0 +1,1443 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>英語フレーズ3000</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f0f4ff;--card:#fff;--ink:#1a202c;--muted:#6b7280;--line:#e5e7eb;
+  --blue:#2563eb;--blue-s:#dbeafe;--green:#059669;--green-s:#d1fae5;
+  --red:#dc2626;--red-s:#fee2e2;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0f172a;--card:#1e293b;--ink:#f1f5f9;--muted:#94a3b8;--line:#334155;
+  --blue:#60a5fa;--blue-s:#1e3a5f;--green:#34d399;--green-s:#064e3b;
+  --red:#f87171;--red-s:#450a0a;
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',system-ui,sans-serif;
+  font-size:16px;line-height:1.6;min-height:100dvh;-webkit-tap-highlight-color:transparent;
+  padding-bottom:env(safe-area-inset-bottom,0)}
+button{font-family:inherit;cursor:pointer;border:none}
+button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+[hidden]{display:none!important}
+select{font-family:inherit}
+.wrap{max-width:540px;margin:0 auto;padding:16px 16px 100px}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 0 18px}
+.hdr-logo{font-size:19px;font-weight:700}
+.hdr-logo small{display:block;font-size:11px;color:var(--muted);font-weight:400}
+.hdr-streak{text-align:right;font-size:12px;color:var(--muted)}
+.hdr-streak b{font-size:22px;color:var(--blue);display:block;line-height:1}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.stat{background:var(--card);border-radius:12px;padding:12px;text-align:center;border:1px solid var(--line)}
+.stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.stat span{font-size:11px;color:var(--muted)}
+.sec-ttl{font-size:12px;color:var(--muted);letter-spacing:.08em;margin-bottom:8px}
+.rand-btn{width:100%;background:var(--blue);color:#fff;border-radius:16px;padding:16px;
+  font-size:17px;font-weight:700;box-shadow:var(--shadow);margin-bottom:16px;text-align:left}
+.rand-btn span{font-size:12px;font-weight:400;opacity:.85;display:block;margin-top:2px}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.cat-btn{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:14px 12px;text-align:left;box-shadow:var(--shadow);display:flex;
+  flex-direction:column;gap:3px;position:relative;overflow:hidden}
+.cat-btn .emo{font-size:22px;line-height:1}
+.cat-btn .nm{font-weight:700;font-size:14px;margin-top:4px;line-height:1.3}
+.cat-btn .sub{font-size:10px;color:var(--muted)}
+.cat-btn .cnt{font-size:11px;color:var(--blue);font-weight:700}
+.cat-btn .pbar{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--line)}
+.cat-btn .pfill{height:100%;background:var(--blue);transition:width .3s}
+.qhdr{display:flex;align-items:center;gap:10px;padding-bottom:14px}
+.qback{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:14px}
+.qprog{flex:1;height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.qprog div{height:100%;background:var(--blue);transition:width .3s}
+.qnum{font-size:13px;color:var(--muted);min-width:3.5em;text-align:right;font-variant-numeric:tabular-nums}
+.qcard{background:var(--card);border-radius:20px;box-shadow:var(--shadow);
+  padding:24px 20px;border:1px solid var(--line);margin-bottom:16px}
+.qtag{display:inline-block;background:var(--blue-s);color:var(--blue);
+  font-size:12px;font-weight:700;border-radius:999px;padding:3px 12px;margin-bottom:14px}
+.qhint{font-size:13px;color:var(--muted);margin-bottom:10px}
+.qjp{font-size:24px;font-weight:700;line-height:1.65;letter-spacing:.02em}
+.speak-btn{width:100%;background:var(--blue);color:#fff;border-radius:16px;
+  padding:16px;font-size:17px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;gap:10px;margin-bottom:10px}
+.speak-btn.on{background:var(--green)}
+.reveal{background:var(--blue-s);border-radius:16px;padding:16px 18px;margin-bottom:14px}
+.reveal .en{font-size:20px;font-weight:700;color:var(--blue);line-height:1.5}
+.rating{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-k{background:var(--green);color:#fff;border-radius:14px;padding:14px;font-size:16px;font-weight:700}
+.btn-f{background:var(--card);color:var(--ink);border-radius:14px;padding:14px;font-size:16px;font-weight:700;border:2px solid var(--line)}
+.res-score{text-align:center;padding:24px 0 20px}
+.res-big{font-size:56px;font-weight:700;color:var(--blue);line-height:1}
+.res-big small{font-size:20px;color:var(--muted)}
+.res-msg{font-size:15px;color:var(--muted);margin-top:8px}
+.btn-row{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.btn-p{background:var(--blue);color:#fff;border-radius:14px;padding:14px;font-size:16px;font-weight:700;width:100%}
+.btn-g{background:var(--card);color:var(--ink);border-radius:14px;padding:14px;font-size:16px;font-weight:700;border:2px solid var(--line);width:100%}
+.miss-list{display:flex;flex-direction:column;gap:8px}
+.miss-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.miss-item .jp{font-size:15px;font-weight:700}
+.miss-item .en{font-size:14px;color:var(--blue);margin-top:2px}
+.miss-item .speak-sm{background:var(--blue-s);color:var(--blue);border:none;border-radius:8px;padding:5px 8px;font-size:16px;float:right;margin-left:8px;cursor:pointer}
+.rev-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.rev-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.rev-item .content{flex:1}
+.rev-item .jp{font-size:15px;font-weight:700}
+.rev-item .en{font-size:13px;color:var(--muted);margin-top:2px}
+.rev-item .sp{background:var(--blue-s);color:var(--blue);border:none;border-radius:8px;padding:8px 10px;font-size:18px;flex-shrink:0;cursor:pointer}
+.empty{text-align:center;color:var(--muted);padding:40px 20px}
+.set-row{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.set-row .lbl{font-size:15px;font-weight:500}
+.set-row .sub{font-size:12px;color:var(--muted)}
+.set-row select{font-size:14px;padding:6px 10px;border:1px solid var(--line);
+  border-radius:8px;background:var(--card);color:var(--ink)}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--card);
+  border-top:1px solid var(--line);display:flex;justify-content:center;
+  padding-bottom:env(safe-area-inset-bottom,0);z-index:10}
+.bnav-in{display:flex;max-width:540px;width:100%}
+.bnav button{flex:1;background:none;padding:10px 4px 12px;font-size:11px;
+  color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:2px}
+.bnav button .ic{font-size:20px;line-height:1.1}
+.bnav button[aria-current="page"]{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section id="sec-home">
+  <header class="hdr">
+    <div class="hdr-logo">英語フレーズ3000<small>日常会話マスター</small></div>
+    <div class="hdr-streak">連続<b id="streakNum">0</b>日</div>
+  </header>
+  <div class="stats">
+    <div class="stat"><b id="stTotal">0</b><span>学習済み</span></div>
+    <div class="stat"><b id="stRate">-</b><span>正解率</span></div>
+    <div class="stat"><b id="stMaster">0</b><span>マスター</span></div>
+  </div>
+  <button class="rand-btn" id="btnRand">🎲 ランダム練習<span>全カテゴリからシャッフル（20問）</span></button>
+  <div class="sec-ttl">カテゴリをえらぶ</div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<section id="sec-quiz" hidden>
+  <div class="qhdr">
+    <button class="qback" id="quizBack">← やめる</button>
+    <div class="qprog"><div id="qBar"></div></div>
+    <div class="qnum" id="qNum"></div>
+  </div>
+  <div class="qcard">
+    <div class="qtag" id="qTag"></div>
+    <div class="qhint">日本語を見て、英語で言ってみよう</div>
+    <div class="qjp" id="qJp"></div>
+  </div>
+  <button class="speak-btn" id="speakBtn"><span class="ic">🔊</span> 答えを聞く</button>
+  <div id="revealBox" class="reveal" hidden><div class="en" id="qEn"></div></div>
+  <div class="rating" id="ratingRow" hidden>
+    <button class="btn-k" id="btnKnew">✓ 知ってた</button>
+    <button class="btn-f" id="btnForgot">✗ 知らなかった</button>
+  </div>
+</section>
+
+<section id="sec-result" hidden>
+  <div class="res-score">
+    <div class="res-big" id="resBig"></div>
+    <div class="res-msg" id="resMsg"></div>
+  </div>
+  <div class="btn-row">
+    <button class="btn-p" id="resRetry">間違えた問題をもう一度</button>
+    <button class="btn-g" id="resHome">ホームへ戻る</button>
+  </div>
+  <div class="sec-ttl" id="missTitle">間違えたフレーズ</div>
+  <div class="miss-list" id="missList"></div>
+</section>
+
+<section id="sec-review" hidden>
+  <header class="hdr"><div class="hdr-logo">復習リスト<small>もう一度確認しよう</small></div></header>
+  <button class="btn-p" id="reviewStart" style="margin-bottom:12px">この中から練習する（20問）</button>
+  <div class="rev-list" id="revList"></div>
+  <div class="empty" id="revEmpty"><div style="font-size:48px;margin-bottom:12px">📚</div>復習リストは空です</div>
+</section>
+
+<section id="sec-settings" hidden>
+  <header class="hdr"><div class="hdr-logo">設定<small>Settings</small></div></header>
+  <div class="set-row">
+    <div><div class="lbl">話す速度</div><div class="sub">英語の読み上げ速度</div></div>
+    <select id="rateSelect">
+      <option value="0.7">ゆっくり</option>
+      <option value="0.9" selected>ふつう</option>
+      <option value="1.1">はやめ</option>
+      <option value="1.3">はやい</option>
+    </select>
+  </div>
+  <div class="set-row">
+    <div><div class="lbl">総フレーズ数</div><div class="sub">登録されているフレーズ</div></div>
+    <b id="totalCount" style="color:var(--blue)">-</b>
+  </div>
+  <div style="margin-top:16px">
+    <button class="btn-g" id="resetBtn">学習記録をリセットする</button>
+    <div id="resetConf" hidden style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <button class="btn-p" id="resetYes" style="background:var(--red)">本当に消す</button>
+      <button class="btn-g" id="resetNo">やめる</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<nav class="bnav">
+  <div class="bnav-in">
+    <button data-sec="home" aria-current="page"><span class="ic">🏠</span>ホーム</button>
+    <button data-sec="review"><span class="ic">📋</span>復習</button>
+    <button data-sec="settings"><span class="ic">⚙️</span>設定</button>
+  </div>
+</nav>
+
+<script>
+const RAW={
+greeting:`はじめまして。よろしくお願いします。|Nice to meet you.
+お名前は何ですか？|What's your name?
+私の名前は田中です。|My name is Tanaka.
+どちらのご出身ですか？|Where are you from?
+東京出身です。|I'm from Tokyo.
+お仕事は何をされていますか？|What do you do for a living?
+会社員です。|I work for a company.
+こんにちは。|Hello.
+おはようございます。|Good morning.
+こんばんは。|Good evening.
+お元気ですか？|How are you?
+おかげさまで元気です。|I'm doing well, thank you.
+ありがとうございます。|Thank you.
+どうぞよろしく。|It's a pleasure to meet you.
+さようなら。|Goodbye.
+またね。|See you later.
+いい一日を。|Have a good day.
+楽しんでね。|Have fun.
+気をつけてね。|Take care.
+また来週。|See you next week.
+連絡してね。|Keep in touch.
+久しぶりですね。|Long time no see.
+お変わりありませんか？|How have you been?
+ちょっと失礼します。|Excuse me for a moment.
+お待たせしました。|Sorry to keep you waiting.
+いつもお世話になっております。|Thank you for your continued support.
+どうぞ。|Please go ahead.
+すみません、少しよろしいですか？|Excuse me, do you have a moment?
+もちろんです。|Of course.
+どういたしまして。|You're welcome.
+おやすみなさい。|Good night.
+旅行楽しんできてね。|Enjoy your trip.
+お帰りなさい。|Welcome back.
+旅行はどうでしたか？|How was your trip?
+楽しかったですか？|Did you have a good time?
+おみやげを買ってきました。|I bought you a souvenir.
+お世話になりました。|Thank you for everything.
+またいつかお会いしましょう。|I hope we'll meet again someday.
+趣味は何ですか？|What are your hobbies?
+好きな食べ物は何ですか？|What's your favorite food?
+どんな音楽が好きですか？|What kind of music do you like?
+映画は好きですか？|Do you like movies?
+週末は何をしましたか？|What did you do on the weekend?
+旅行は好きですか？|Do you like traveling?
+もっとゆっくり話してもらえますか？|Could you speak more slowly?
+もう一度言っていただけますか？|Could you say that again?
+今忙しいですか？|Are you busy right now?
+少し時間はありますか？|Do you have a minute?
+お茶でもしませんか？|Would you like to get some coffee?
+一緒に食事しませんか？|Would you like to have dinner together?
+電話番号を教えてもらえますか？|Could I have your phone number?
+メールアドレスを教えてもらえますか？|Could I have your email address?
+どこかおすすめのお店はありますか？|Can you recommend a good restaurant?
+この辺りに詳しいですか？|Are you familiar with this area?
+ここに来るのは初めてですか？|Is this your first time here?
+日本に来て何年になりますか？|How long have you been in Japan?
+いい時間を過ごしていますか？|Are you having a good time?
+日本の印象はどうですか？|What do you think of Japan?
+日本語は話せますか？|Can you speak Japanese?
+少し話せます。|I can speak a little.
+まだ勉強中です。|I'm still learning.
+英語は上手ですね。|Your English is very good.
+まだまだです。|I still have a long way to go.
+一緒に頑張りましょう。|Let's do our best together.
+何かあれば連絡してください。|Feel free to contact me if anything comes up.
+何でも聞いてください。|Feel free to ask me anything.
+喜んでお手伝いします。|I'd be happy to help.
+遠慮しないでください。|Don't hesitate.
+気にしないでください。|Don't worry about it.
+大丈夫ですか？|Are you okay?
+お体の具合はいかがですか？|How are you feeling?
+体に気をつけてね。|Take care of yourself.
+無理しないでね。|Don't push yourself too hard.
+お大事に。|Get well soon.
+頑張ってください。|Good luck!
+応援しています。|I'm cheering you on.
+うまくいくといいですね。|I hope it goes well.
+心配しないでください。|Please don't worry.
+大丈夫ですよ。|You'll be fine.
+あなたならできますよ。|You can do it.
+誇りに思います。|I'm proud of you.
+お疲れ様でした。|Good work. Well done.
+うまくやりましたね。|Well done.
+その調子。|Keep it up.
+あきらめないで。|Don't give up.
+試してみる価値はあります。|It's worth a try.
+ベストを尽くしてください。|Do your best.
+頑張れ！|Go for it!
+失敗を恐れないで。|Don't be afraid to fail.
+一歩一歩進んでいきましょう。|Let's take it one step at a time.
+今日も一日頑張りましょう。|Let's do our best today.
+良い週末を。|Have a good weekend.
+連休を楽しんでください。|Enjoy your holiday.
+おかえり。|Welcome back.
+これ、よかったら。|Here, please take this if you'd like.
+お気持ちだけいただきます。|I appreciate the thought.
+本当に？|Really? Is that so?
+まさか！|No way! You're kidding!
+すごいですね！|That's amazing!
+素晴らしいですね！|That's wonderful!
+残念ですね。|That's too bad. What a shame.
+お気の毒に。|I'm sorry to hear that.
+大変でしたね。|That must have been tough.
+信じられない！|I can't believe it!
+一人っ子です。|I'm an only child.
+兄弟はいますか？|Do you have any siblings?
+姉がいます。|I have an older sister.
+弟がいます。|I have a younger brother.
+結婚していますか？|Are you married?
+既婚です。|I'm married.
+未婚です。|I'm single.
+子どもはいますか？|Do you have children?
+子どもが二人います。|I have two children.
+旦那さんはどんな仕事をされていますか？|What does your husband do?
+両親は元気ですか？|Are your parents well?
+実家は遠いですか？|Is your parents' home far away?
+実家にはよく帰りますか？|Do you visit your parents' home often?
+お互い様ですよ。|We're even. It goes both ways.
+冗談ですよ。|I'm just kidding.
+本気ですか？|Are you serious?
+それはおかしいですね。|That's funny.
+あなたらしいですね。|That's so you.
+相変わらずですね。|You haven't changed.
+最近どんな感じですか？|How's everything going?
+まあまあです。|So-so. Not bad.
+そんなところです。|Something like that.
+一言では言えないですね。|It's hard to put into words.
+気にしなくていいです。|No need to worry.
+遠慮せずに。|Don't hold back.
+リラックスしてください。|Relax. Make yourself comfortable.
+くつろいでください。|Please make yourself at home.
+何でも言ってください。|Feel free to say anything.
+正直に言ってください。|Please be honest.
+本音で話しましょう。|Let's speak frankly.
+うそ？|Really? No way!
+冗談でしょ？|You're joking, right?
+信じられない。|I can't believe it.
+驚きましたよ。|I was surprised.
+予想外でした。|That was unexpected.
+そういうことか。|Oh, I see.
+やっとわかりました。|Now I understand.
+ありがとう、教えてくれて。|Thanks for telling me.
+助かります。|That helps. Thank you.
+感謝します。|I appreciate it.
+本当にありがとう。|Thank you so much.
+いいえ、こちらこそ。|Not at all, the pleasure is mine.`,
+
+shopping:`いくらですか？|How much is this?
+これをください。|I'll take this, please.
+少し見せていただけますか？|Could I have a look at this?
+試着してもいいですか？|Can I try this on?
+試食できますか？|Can I try a sample?
+別の色はありますか？|Do you have this in another color?
+別のサイズはありますか？|Do you have this in another size?
+もう少し大きいサイズはありますか？|Do you have a larger size?
+もう少し小さいサイズはありますか？|Do you have a smaller size?
+Mサイズをください。|I'd like a medium, please.
+これを二つください。|I'll take two of these, please.
+袋をもらえますか？|Could I get a bag?
+袋は不要です。|I don't need a bag.
+カードで払えますか？|Can I pay by credit card?
+現金で払います。|I'll pay cash.
+おつりをください。|Could I have the change?
+レシートをください。|Could I have a receipt, please?
+領収書をください。|Could I have an official receipt, please?
+返品したいのですが。|I'd like to return this.
+交換したいのですが。|I'd like to exchange this.
+これは欠陥品です。|This is defective.
+壊れています。|It's broken.
+汚れています。|It's dirty or stained.
+サイズが合いませんでした。|It doesn't fit.
+気に入らなくて。|I changed my mind about it.
+返品できますか？|Is it possible to return this?
+返金してもらえますか？|Could I get a refund?
+こちらはセール品ですか？|Is this on sale?
+割引はありますか？|Is there a discount?
+もう少し安くなりますか？|Could you give me a little discount?
+まとめて買ったら安くなりますか？|Is there a discount if I buy more than one?
+これはどこにありますか？|Where can I find this?
+〜売り場はどこですか？|Where is the department I'm looking for?
+案内してもらえますか？|Could you show me where it is?
+探しているものがあるのですが。|I'm looking for something.
+〜はありますか？|Do you have what I'm looking for?
+在庫はありますか？|Is it in stock?
+取り寄せできますか？|Can you order it for me?
+いつ入荷しますか？|When will it be in stock again?
+おすすめはどれですか？|Which one do you recommend?
+人気があるのはどれですか？|Which one is the most popular?
+新商品はありますか？|Do you have any new arrivals?
+ギフト用にラッピングしてもらえますか？|Could you wrap this as a gift?
+プレゼント用なのですが。|It's for a gift.
+誕生日プレゼントを探しています。|I'm looking for a birthday gift.
+予算は五千円くらいです。|My budget is around 5,000 yen.
+ウィンドウショッピングです。|I'm just browsing, thank you.
+ゆっくり見てもいいですか？|May I take my time looking?
+特に何も探していません。|I'm not looking for anything in particular.
+また来ます。|I'll come back.
+考えておきます。|I'll think about it.
+これに決めます。|I'll go with this one.
+やっぱりやめます。|Actually, I'll pass.
+一番安いのはどれですか？|Which one is the cheapest?
+一番高いのはどれですか？|Which one is the most expensive?
+品質はいいですか？|Is the quality good?
+長持ちしますか？|Will it last a long time?
+素材は何ですか？|What is this made of?
+洗濯機で洗えますか？|Can this be machine-washed?
+手洗いしてください。|Please hand-wash this.
+乾燥機は使えますか？|Can this be tumble-dried?
+日本製ですか？|Is this made in Japan?
+輸入品ですか？|Is this an imported product?
+保証はついていますか？|Does it come with a warranty?
+保証書はありますか？|Is there a warranty card?
+修理できますか？|Can this be repaired?
+電池は別売りですか？|Are batteries sold separately?
+税込みの価格ですか？|Is tax included in the price?
+消費税はいくらですか？|How much is the consumption tax?
+合計でいくらになりますか？|How much is it in total?
+ポイントカードはありますか？|Do you have a loyalty card?
+ポイントカードを作りたいのですが。|I'd like to sign up for a loyalty card.
+ポイントをつけてください。|Please add points to my card.
+クーポンを使えますか？|Can I use this coupon?
+免税手続きをお願いします。|Could you process a tax exemption for me?
+パスポートが必要ですか？|Do I need my passport?
+まとめて会計してください。|Please ring these up together.
+別々に会計してください。|Please ring these up separately.
+お会計をお願いします。|Check, please.
+電子マネーは使えますか？|Do you accept electronic money?
+一括払いでお願いします。|All in one payment, please.
+分割払いにできますか？|Can I pay in installments?
+おつりが違います。|The change is incorrect.
+もう一度確認してもらえますか？|Could you check again?
+大きいお札しかないのですが。|I only have a large bill.
+両替できますか？|Can you make change for me?
+1000円札に両替してもらえますか？|Could you break this into 1,000-yen bills?
+送料はいくらですか？|How much is the shipping?
+宅配にしてもらえますか？|Could you have it delivered?
+何日くらいで届きますか？|How many days will it take to arrive?
+一番近い出口はどこですか？|Where is the nearest exit?
+駐車場はありますか？|Do you have a parking lot?
+免税ですか？|Is this tax-free?`,
+
+restaurant:`予約をしたいのですが。|I'd like to make a reservation.
+今夜7時に2人で予約できますか？|Can I make a reservation for two at 7 tonight?
+田中という名前で予約してあります。|I have a reservation under the name Tanaka.
+予約なしで入れますか？|Can we get a table without a reservation?
+何分くらい待ちますか？|How long is the wait?
+禁煙席をお願いします。|A non-smoking table, please.
+窓際の席はありますか？|Is there a table by the window?
+テラス席でお願いします。|I'd like a terrace table, please.
+メニューを見せていただけますか？|Could I see the menu, please?
+おすすめは何ですか？|What do you recommend?
+本日のおすすめはありますか？|Do you have today's specials?
+人気のメニューはどれですか？|What's the most popular dish?
+これはどんな料理ですか？|What is this dish like?
+辛いですか？|Is it spicy?
+量はどのくらいですか？|How large are the portions?
+Aランチをください。|I'll have the A lunch, please.
+これと同じものをください。|I'll have the same as this, please.
+注文していいですか？|Can I order now?
+まだ決まっていません。|I haven't decided yet.
+もう少し時間をください。|Could we have a few more minutes?
+〜はアレルギーがあります。|I'm allergic to something.
+牛乳アレルギーがあります。|I'm allergic to dairy.
+ナッツアレルギーがあります。|I have a nut allergy.
+グルテンフリーのメニューはありますか？|Do you have gluten-free options?
+ベジタリアンメニューはありますか？|Do you have vegetarian options?
+〜を少なめにしてもらえますか？|Could you go easy on that ingredient?
+よく焼いてください。|Well done, please.
+ミディアムでお願いします。|Medium, please.
+レアでお願いします。|Rare, please.
+飲み物はどうしますか？|What would you like to drink?
+水をください。|Water, please.
+コーヒーをお願いします。|A coffee, please.
+食後にコーヒーをください。|I'll have coffee after the meal.
+おかわりをください。|Could I have a refill?
+お水をもう一杯ください。|Could I have another glass of water?
+お皿を下げてもらえますか？|Could you clear the plates?
+箸を持ってきてもらえますか？|Could you bring chopsticks?
+フォークを持ってきてもらえますか？|Could you bring a fork?
+ナプキンをください。|Could I have a napkin?
+注文と違うものが来たのですが。|This isn't what I ordered.
+料理がまだ来ていません。|My order hasn't arrived yet.
+どのくらいかかりますか？|How much longer will it take?
+おいしいです。|This is delicious.
+とてもおいしかったです。|It was very delicious.
+最高でした。|It was excellent.
+お腹がいっぱいです。|I'm full.
+もう食べられません。|I can't eat any more.
+テイクアウトできますか？|Can I get this to go?
+残りを包んでもらえますか？|Could you wrap up the leftovers?
+お会計をお願いします。|Check, please.
+いくらですか？|How much is it?
+一緒に払います。|We'll pay together.
+別々に払います。|We'll pay separately.
+割り勘にします。|We'll split the bill.
+サービス料は含まれていますか？|Is the service charge included?
+領収書をください。|Could I have a receipt?
+とてもよいお店ですね。|This is a wonderful restaurant.
+また来ます。|We'll definitely come back.
+ご馳走様でした。|Thank you for the meal. It was delicious.
+シェフに伝えてください。|Please give my compliments to the chef.
+コースメニューはありますか？|Do you have a set course menu?
+飲み放題はありますか？|Do you have all-you-can-drink?
+食べ放題はありますか？|Do you have all-you-can-eat?
+時間制限はありますか？|Is there a time limit?
+個室はありますか？|Do you have a private room?
+誕生日なのですが何かサービスはありますか？|It's someone's birthday. Do you have any special service?
+子ども用の椅子はありますか？|Do you have a high chair for children?
+禁煙ですか？|Is this restaurant non-smoking?
+カードで払えますか？|Can I pay by credit card?
+持ち込みはできますか？|Can I bring my own drink or food?
+コルク料はかかりますか？|Is there a corkage fee?
+大人数での予約はできますか？|Can I make a reservation for a large group?
+お取り置きできますか？|Can you keep our order?
+テイクアウトメニューはありますか？|Do you have a takeout menu?
+何時まで営業していますか？|What time do you close?
+何時から開いていますか？|What time do you open?
+ラストオーダーは何時ですか？|What time is the last order?
+席は禁煙ですか？|Is this a non-smoking seat?`,
+
+transport:`〜はどうやって行けばいいですか？|How do I get to where I need to go?
+〜まで歩いて何分ですか？|How long does it take to walk there?
+〜はどちらの方向ですか？|Which direction is it?
+まっすぐ行ってください。|Go straight.
+右に曲がってください。|Turn right.
+左に曲がってください。|Turn left.
+次の角を右に曲がってください。|Turn right at the next corner.
+信号を渡ってください。|Cross at the traffic light.
+橋を渡ってください。|Cross the bridge.
+〜の隣にあります。|It's next to it.
+〜の向かいにあります。|It's across from it.
+歩いて行けますか？|Can I walk there?
+遠いですか？|Is it far?
+近いですか？|Is it close?
+ここから何キロですか？|How many kilometers is it from here?
+〜行きの電車は何番線ですか？|Which platform is the train on?
+〜行きの電車は何時ですか？|What time is the train?
+次の電車は何時ですか？|When is the next train?
+終電は何時ですか？|What time is the last train?
+〜まで何駅ですか？|How many stops is it?
+乗り換えが必要ですか？|Do I need to transfer?
+どこで乗り換えればいいですか？|Where do I need to transfer?
+〜線に乗り換えてください。|Transfer to the other line.
+一日乗車券はありますか？|Is there a day pass?
+Suicaは使えますか？|Can I use Suica?
+ICカードで乗れますか？|Can I ride with an IC card?
+切符を買いたいのですが。|I'd like to buy a ticket.
+〜まで一枚ください。|One ticket to my destination, please.
+往復でください。|A round trip, please.
+片道でください。|A one-way ticket, please.
+特急に乗る必要がありますか？|Do I need to take the express train?
+グリーン車に乗れますか？|Can I ride in the green car?
+自由席でいいですか？|Is an unreserved seat okay?
+座席を指定したいのですが。|I'd like to reserve a seat.
+窓側の席をお願いします。|A window seat, please.
+通路側の席をお願いします。|An aisle seat, please.
+タクシーを呼んでもらえますか？|Could you call a taxi for me?
+〜まで行ってください。|Please take me to my destination.
+急いでいます。|I'm in a hurry.
+急がなくていいです。|There's no rush.
+ここで止めてください。|Please stop here.
+おつりはいりません。|Keep the change.
+領収書をもらえますか？|Could I have a receipt?
+バスで行けますか？|Can I get there by bus?
+バス停はどこですか？|Where is the bus stop?
+何停留所ですか？|How many stops is it?
+料金はいくらですか？|How much is the fare?
+ここが目的地ですか？|Is this my stop?
+〜に着いたら教えてください。|Please let me know when we reach the stop.
+飛行機のチェックインはどこですか？|Where is the check-in counter?
+搭乗口はどこですか？|Where is the boarding gate?
+何時に搭乗開始ですか？|What time does boarding start?
+荷物を預けたいのですが。|I'd like to check my luggage.
+手荷物の重量制限はいくらですか？|What is the carry-on weight limit?
+免税店はどこですか？|Where is the duty-free shop?
+パスポートコントロールはどこですか？|Where is passport control?
+荷物の受け取りはどこですか？|Where is the baggage claim?
+乗り継ぎはどうすればいいですか？|How do I catch my connecting flight?
+フライトが遅れています。|My flight is delayed.
+フライトがキャンセルされました。|My flight was cancelled.
+次のフライトに乗せてもらえますか？|Can I be put on the next flight?
+レンタカーを借りたいのですが。|I'd like to rent a car.
+コンパクトカーをお願いします。|A compact car, please.
+GPS付きの車はありますか？|Do you have a car with GPS?
+任意保険に入りたいです。|I'd like to get optional insurance.
+ガソリンを満タンにして返せばいいですか？|Should I return it with a full tank?
+駐車場はどこですか？|Where is the parking lot?
+駐車料金はいくらですか？|How much is the parking fee?
+ここに駐車していいですか？|Is it okay to park here?
+道に迷ってしまいました。|I'm lost.
+現在地はどこですか？|Where am I right now?
+地図を見せてもらえますか？|Could you show me on the map?`,
+
+hotel:`チェックインをお願いします。|I'd like to check in, please.
+田中という名前で予約しています。|I have a reservation under Tanaka.
+確認番号を教えてください。|Could you give me a confirmation number?
+シングルルームを予約しました。|I reserved a single room.
+ダブルルームを予約しました。|I reserved a double room.
+ツインルームをお願いします。|I'd like a twin room, please.
+何泊されますか？|How many nights will you be staying?
+3泊します。|I'll be staying for three nights.
+チェックアウトは何時ですか？|What time is check-out?
+レイトチェックアウトはできますか？|Is late check-out available?
+アーリーチェックインはできますか？|Is early check-in available?
+部屋を見てもいいですか？|May I see the room?
+より高い階の部屋はありますか？|Is there a room on a higher floor?
+禁煙の部屋をお願いします。|I'd like a non-smoking room.
+静かな部屋をお願いします。|I'd like a quiet room.
+インターネットは使えますか？|Is the internet available?
+Wi-Fiのパスワードを教えてください。|What is the Wi-Fi password?
+朝食は含まれていますか？|Is breakfast included?
+朝食は何時からですか？|What time does breakfast start?
+荷物を預かってもらえますか？|Could you hold my luggage?
+荷物を部屋まで運んでもらえますか？|Could you bring my luggage to my room?
+枕をもう一つもらえますか？|Could I have an extra pillow?
+タオルをもう一枚もらえますか？|Could I have another towel?
+ドライヤーを貸してもらえますか？|Could I borrow a hair dryer?
+アイロンを貸してもらえますか？|Could I borrow an iron?
+部屋が暑いです。|The room is too hot.
+部屋が寒いです。|The room is too cold.
+エアコンの使い方を教えてください。|Could you show me how to use the air conditioner?
+お湯が出ません。|There's no hot water.
+シャワーの水圧が弱いです。|The shower has low water pressure.
+トイレが詰まっています。|The toilet is clogged.
+鍵が壊れています。|The key doesn't work.
+部屋のキーを部屋に忘れました。|I locked myself out of my room.
+部屋を変えてもらえますか？|Could I change rooms?
+隣の部屋がうるさいです。|The room next door is noisy.
+ランドリーサービスはありますか？|Do you have laundry service?
+コインランドリーはありますか？|Do you have a coin laundry?
+ルームサービスをお願いしたいのですが。|I'd like to order room service.
+食事を部屋に持ってきてもらえますか？|Could you bring my meal to my room?
+モーニングコールをお願いします。|Could I have a wake-up call?
+明朝7時にモーニングコールをお願いします。|Please give me a wake-up call at 7 tomorrow morning.
+フロントに電話をつないでもらえますか？|Could you connect me to the front desk?
+タクシーを呼んでもらえますか？|Could you call a taxi for me?
+観光スポットを教えてもらえますか？|Could you recommend some sightseeing spots?
+おすすめのレストランはありますか？|Can you recommend a good restaurant?
+近くにコンビニはありますか？|Is there a convenience store nearby?
+ATMはどこですか？|Where is the ATM?
+プールはありますか？|Do you have a pool?
+ジムはありますか？|Do you have a gym?
+スパはありますか？|Do you have a spa?
+ビジネスセンターはありますか？|Do you have a business center?
+チェックアウトをお願いします。|I'd like to check out, please.
+今日チェックアウトします。|I'm checking out today.
+請求書を確認させてください。|Could I check the bill?
+この料金は何ですか？|What is this charge for?
+この請求が間違っていると思います。|I think there's an error in this charge.
+支払いはカードでいいですか？|Can I pay by credit card?
+明細書をください。|Could I have an itemized bill?
+もう一泊延長できますか？|Can I extend my stay by one more night?
+荷物はチェックアウト後も預けられますか？|Can I leave my luggage after check-out?
+ありがとうございました。とても快適でした。|Thank you. I had a very comfortable stay.
+食事はどこでとれますか？|Where can I have a meal?
+荷物を先に送ることはできますか？|Can I send my luggage ahead?
+コンシェルジュはいますか？|Is there a concierge?
+ルームキーをもう一枚もらえますか？|Could I have an extra room key?`,
+
+work:`本日はよろしくお願いします。|I look forward to working with you today.
+〜部の〜と申します。|I'm from the department. Nice to meet you.
+名刺をお渡しします。|Here is my business card.
+お名刺をいただけますか？|May I have your business card?
+〜さんはいらっしゃいますか？|Is the person I'm looking for available?
+〜についてご相談があります。|I'd like to discuss something with you.
+少しお時間をいただけますか？|Could I have a moment of your time?
+確認したいことがあります。|There's something I'd like to confirm.
+報告があります。|I have something to report.
+進捗を共有させてください。|Let me share the progress with you.
+締め切りはいつですか？|What is the deadline?
+いつまでに必要ですか？|When do you need it by?
+今週中に仕上げます。|I'll have it done by the end of this week.
+明日中にお送りします。|I'll send it to you by tomorrow.
+確認してご連絡します。|I'll check and get back to you.
+折り返しご連絡します。|I'll get back to you.
+少々お待ちください。|Just a moment, please.
+確認が取れ次第ご連絡します。|I'll contact you once I've confirmed.
+承知しました。|Understood. I'll take care of it.
+かしこまりました。|Certainly. I understand.
+おっしゃる通りです。|You're absolutely right.
+ご指摘ありがとうございます。|Thank you for pointing that out.
+ご意見を聞かせてください。|I'd like to hear your opinion.
+どのようにお考えですか？|What do you think?
+ご提案があります。|I have a suggestion.
+〜はいかがでしょうか？|How about this idea?
+〜を検討していただけますか？|Would you consider it?
+別のアプローチを試してみましょう。|Let's try a different approach.
+もう少し詳しく説明してもらえますか？|Could you explain that in more detail?
+つまりどういうことですか？|What do you mean by that?
+もう一度確認させてください。|Let me confirm that again.
+誤解があったかもしれません。|There may have been a misunderstanding.
+申し訳ありません、私のミスです。|I'm sorry, that was my mistake.
+責任をもって対処します。|I'll take responsibility and handle it.
+次回から気をつけます。|I'll be more careful next time.
+ご不便をおかけして申し訳ありません。|I'm sorry for the inconvenience.
+ご迷惑をおかけしました。|I apologize for the trouble.
+早急に対応します。|I'll address this immediately.
+最優先で取り組みます。|I'll make this my top priority.
+現状を確認させてください。|Let me check the current situation.
+資料を共有します。|I'll share the documents.
+メールでお送りします。|I'll send it via email.
+データを添付しました。|I've attached the data.
+詳細は後ほどメールします。|I'll send you the details by email.
+会議の日程を調整したいのですが。|I'd like to schedule a meeting.
+何時が都合いいですか？|What time is convenient for you?
+その時間なら空いています。|I'm available at that time.
+その時間は都合がつきません。|I'm not available at that time.
+別の時間はどうですか？|How about another time?
+会議室を予約しました。|I've booked the conference room.
+オンライン会議にしますか？|Should we have an online meeting?
+Zoomでつなぎましょう。|Let's connect via Zoom.
+リンクをお送りします。|I'll send you the link.
+音声が聞こえますか？|Can you hear me?
+画面を共有します。|I'll share my screen.
+マイクをミュートにしてください。|Please mute your microphone.
+接続が不安定です。|The connection is unstable.
+では始めましょうか。|Shall we get started?
+本日のアジェンダを確認します。|Let me go over today's agenda.
+まず〜についてお話しします。|First, let's talk about this.
+続いて〜に移ります。|Next, let's move on.
+以上です、ご質問はありますか？|That's all. Are there any questions?
+詳細についてはお手元の資料をご覧ください。|Please refer to the handout for details.
+何かご不明な点はありますか？|Do you have any questions?
+ご意見はありますか？|Does anyone have any comments?
+まとめると〜ということです。|To summarize, that's the point.
+次回の会議までに〜をしておきます。|I'll have it done before the next meeting.
+本日はありがとうございました。|Thank you for today.
+宜しくお願い申し上げます。|I look forward to your cooperation.
+お忙しいところ恐れ入ります。|I apologize for taking your valuable time.
+ご検討よろしくお願いします。|I hope you will give this your consideration.
+ご協力ありがとうございます。|Thank you for your cooperation.
+何かご不明な点があればお知らせください。|Please let me know if you have any questions.
+よろしければ、お電話でご説明します。|If you'd like, I can explain over the phone.
+メールをご確認ください。|Please check the email I sent.
+資料を事前にお送りします。|I'll send the materials in advance.`,
+
+health:`気分が悪いです。|I'm not feeling well.
+頭が痛いです。|I have a headache.
+お腹が痛いです。|I have a stomachache.
+喉が痛いです。|I have a sore throat.
+熱があります。|I have a fever.
+咳が出ます。|I have a cough.
+鼻水が出ます。|I have a runny nose.
+鼻が詰まっています。|I have a stuffy nose.
+下痢をしています。|I have diarrhea.
+吐き気がします。|I feel nauseous.
+めまいがします。|I feel dizzy.
+体がだるいです。|I feel tired and fatigued.
+食欲がありません。|I don't have an appetite.
+眠れないです。|I can't sleep.
+腰が痛いです。|I have a backache.
+肩が凝っています。|My shoulders are stiff.
+足が痛いです。|My foot hurts.
+転んで膝をすりました。|I fell and scraped my knee.
+やけどをしました。|I burned myself.
+切り傷があります。|I have a cut.
+虫に刺されました。|I was bitten by an insect.
+アレルギーがあります。|I have an allergy.
+〜アレルギーです。|I'm allergic to something.
+持病があります。|I have a chronic condition.
+糖尿病です。|I have diabetes.
+高血圧です。|I have high blood pressure.
+喘息があります。|I have asthma.
+病院に行った方がいいですか？|Should I go to the hospital?
+診察を受けたいのですが。|I'd like to see a doctor.
+予約なしで診てもらえますか？|Can I see a doctor without an appointment?
+何科に行けばいいですか？|Which department should I go to?
+いつから症状がありますか？|When did your symptoms start?
+どのくらい続いていますか？|How long has it been going on?
+薬を飲んでいますか？|Are you taking any medication?
+アレルギーはありますか？|Do you have any allergies?
+血液型は何ですか？|What is your blood type?
+海外旅行保険に入っています。|I have travel insurance.
+診断書をもらえますか？|Could I get a medical certificate?
+処方箋をもらえますか？|Could I get a prescription?
+薬局はどこですか？|Where is the pharmacy?
+この薬はどのように飲めばいいですか？|How should I take this medicine?
+食後に飲んでください。|Take it after meals.
+1日3回飲んでください。|Take it three times a day.
+副作用はありますか？|Are there any side effects?
+痛み止めはありますか？|Do you have any painkillers?
+風邪薬はありますか？|Do you have any cold medicine?
+絆創膏はありますか？|Do you have any bandages?
+体温計を貸してもらえますか？|Could you lend me a thermometer?
+何度ありますか？|What is my temperature?
+安静にしてください。|Please get some rest.
+水分をたくさん取ってください。|Please drink plenty of fluids.
+しっかり食べてください。|Please eat properly.
+十分な睡眠を取ってください。|Please get enough sleep.
+病院を紹介してもらえますか？|Could you refer me to a hospital?
+手術が必要ですか？|Do I need surgery?
+入院が必要ですか？|Do I need to be hospitalized?
+救急に行った方がいいですか？|Should I go to the emergency room?
+最寄りの病院はどこですか？|Where is the nearest hospital?
+救急車を呼んでください。|Please call an ambulance.
+インフルエンザですか？|Is it the flu?
+コロナの検査を受けた方がいいですか？|Should I get tested for COVID?
+抗生物質は必要ですか？|Do I need antibiotics?
+薬を飲み忘れてしまいました。|I forgot to take my medicine.
+禁煙をしています。|I've quit smoking.
+運動を始めました。|I started exercising.
+ダイエット中です。|I'm on a diet.
+健康診断を受けました。|I had a health check-up.
+コレステロールが高いと言われました。|I was told my cholesterol is high.
+貧血気味です。|I'm slightly anemic.
+目が疲れました。|My eyes are tired.
+花粉症があります。|I have hay fever.`,
+
+feelings:`嬉しいです。|I'm happy.
+とても嬉しいです！|I'm so happy! I'm thrilled!
+幸せです。|I'm happy. I feel blessed.
+楽しいです。|I'm having fun. This is enjoyable.
+わくわくしています。|I'm excited.
+感動しました。|I was moved. I was touched.
+満足しています。|I'm satisfied.
+感謝しています。|I'm grateful. I'm thankful.
+誇りに思います。|I'm proud.
+安心しました。|I'm relieved. What a relief.
+悲しいです。|I'm sad.
+落ち込んでいます。|I'm feeling down. I'm depressed.
+がっかりしました。|I'm disappointed.
+寂しいです。|I'm lonely. I feel lonely.
+涙が出そうです。|I'm about to cry.
+つらいです。|It's hard. It's tough.
+心が痛いです。|My heart aches.
+悔しいです。|I'm frustrated. I'm mortified.
+怒っています。|I'm angry. I'm upset.
+イライラしています。|I'm irritated. I'm annoyed.
+むかつきます。|I'm fed up. I'm disgusted.
+怖いです。|I'm scared. I'm afraid.
+不安です。|I'm anxious. I'm worried.
+緊張しています。|I'm nervous.
+心配しています。|I'm worried. I'm concerned.
+ストレスを感じています。|I'm stressed out.
+疲れました。|I'm tired. I'm exhausted.
+くたくたです。|I'm worn out. I'm exhausted.
+やる気が出ません。|I'm not motivated.
+気分が乗りません。|I'm not in the mood.
+驚きました！|I'm surprised! I was shocked!
+びっくりしました。|I was startled. I was surprised.
+信じられないです。|I can't believe it.
+呆れました。|I'm amazed. I'm dumbfounded.
+恥ずかしいです。|I'm embarrassed.
+照れくさいです。|I'm a little embarrassed.
+うれしい反面、複雑な気持ちです。|I'm happy, but I have mixed feelings.
+複雑な気持ちです。|I have mixed feelings.
+何とも言えない気分です。|I have an indescribable feeling.
+すっきりしました。|I feel refreshed.
+ほっとしました。|I'm relieved. What a relief.
+感無量です。|I'm overwhelmed with emotion.
+心が温まりました。|My heart was warmed.
+元気が出ました。|I feel energized. I feel better.
+希望が持てます。|I feel hopeful.
+夢のようです。|It feels like a dream.
+最高の気分です。|I feel on top of the world.
+がんばれそうです。|I feel like I can do my best.
+自信がつきました。|I feel more confident.
+懐かしいです。|I feel nostalgic.
+感情を抑えられません。|I can't hold back my emotions.
+言葉になりません。|Words can't express how I feel.
+号泣しました。|I cried my heart out.
+笑いが止まりませんでした。|I couldn't stop laughing.
+胸が躍りました。|My heart leapt with joy.
+ぞくぞくしました。|I got chills. I was thrilled.
+頭に血が上りました。|I lost my temper. I got really angry.
+冷静になってください。|Please calm down.
+落ち着いてください。|Please calm down.
+深呼吸してください。|Please take a deep breath.
+気持ちはわかります。|I understand how you feel.
+そう感じるのは当然です。|It's natural to feel that way.
+あなたの気持ちを尊重します。|I respect your feelings.
+一緒に乗り越えましょう。|Let's get through this together.
+時間が解決してくれます。|Time heals all wounds.`,
+
+weather:`今日はいい天気ですね。|It's nice weather today, isn't it?
+晴れていますね。|It's sunny.
+曇っていますね。|It's cloudy.
+雨が降っています。|It's raining.
+雪が降っています。|It's snowing.
+風が強いですね。|It's windy.
+蒸し暑いですね。|It's hot and humid.
+暑いですね。|It's hot.
+寒いですね。|It's cold.
+涼しいですね。|It's cool.
+過ごしやすい陽気ですね。|The weather is pleasant.
+天気予報はどうですか？|What's the weather forecast?
+今日は雨が降りますか？|Will it rain today?
+傘を持って行った方がいいですよ。|You should bring an umbrella.
+台風が来ています。|There's a typhoon coming.
+嵐になりそうです。|It looks like there's going to be a storm.
+気温は何度ですか？|What is the temperature?
+今日は〜度あります。|It's a certain temperature today.
+最高気温は〜度です。|The high today will be a certain temperature.
+最低気温は〜度です。|The low tonight will be a certain temperature.
+花粉の季節ですね。|It's pollen season.
+花粉症で大変です。|I'm suffering from hay fever.
+梅雨が始まりましたね。|The rainy season has started.
+湿気が高いですね。|It's very humid.
+乾燥しています。|It's dry.
+日差しが強いですね。|The sun is strong.
+UV指数が高いです。|The UV index is high.
+日焼け止めを塗った方がいいですよ。|You should put on sunscreen.
+雷が鳴っています。|It's thundering.
+稲妻が光っています。|There's lightning.
+霧が出ています。|It's foggy.
+氷が張っています。足元に気をつけて。|There's ice on the ground. Watch your step.
+雪道は滑りやすいです。|Snowy roads are slippery.
+今年の夏は特に暑いですね。|This summer is especially hot.
+今年の冬は穏やかですね。|This winter is mild.
+気候変動の影響を感じますね。|You can feel the effects of climate change.
+今日はお花見日和ですね。|It's perfect weather for cherry blossom viewing.
+紅葉が綺麗ですね。|The autumn leaves are beautiful.
+初雪ですね。|It's the first snow of the season.
+春めいてきましたね。|It's starting to feel like spring.
+暑さ対策をしてください。|Please take measures against the heat.
+水分補給を忘れずに。|Don't forget to stay hydrated.
+熱中症に注意してください。|Be careful of heatstroke.
+防寒対策をしてください。|Please dress warmly.
+スリップに注意してください。|Be careful of slippery surfaces.
+傘を忘れずに。|Don't forget your umbrella.
+日傘を使った方がいいです。|You should use a parasol.
+気温差が大きいですね。|There's a big temperature difference.
+朝晩は冷えますね。|It gets cold in the morning and evening.
+今日は一日雨の予報です。|It's forecast to rain all day today.`,
+
+hobby:`趣味は何ですか？|What are your hobbies?
+休日は何をしていますか？|What do you do on your days off?
+スポーツは何かやっていますか？|Do you play any sports?
+週に何回運動しますか？|How often do you exercise?
+最近始めたことはありますか？|Is there anything you've recently started?
+読書が好きです。|I enjoy reading.
+最近どんな本を読みましたか？|What have you been reading lately?
+音楽を聴くのが好きです。|I enjoy listening to music.
+楽器は弾けますか？|Do you play any instruments?
+ピアノを弾きます。|I play the piano.
+料理をするのが好きです。|I enjoy cooking.
+最近作った料理はありますか？|Have you made anything good lately?
+映画は好きですか？|Do you like movies?
+最近見た映画はありますか？|Have you seen any good movies lately?
+ジャンルは何が好きですか？|What genre do you like?
+旅行が趣味です。|Traveling is my hobby.
+国内と海外どちらが好きですか？|Do you prefer domestic or international travel?
+次はどこへ行きたいですか？|Where do you want to go next?
+写真を撮るのが好きです。|I enjoy taking photos.
+最近いい写真は撮れましたか？|Have you taken any good photos lately?
+絵を描くのが好きです。|I enjoy drawing or painting.
+手芸が趣味です。|My hobby is crafts.
+ゲームをしますか？|Do you play video games?
+最近ハマっているゲームはありますか？|Is there any game you're really into lately?
+ヨガをしています。|I do yoga.
+ジョギングをしています。|I go jogging.
+マラソンに出たことがありますか？|Have you ever run a marathon?
+サッカーが好きです。|I like soccer.
+テニスをします。|I play tennis.
+ゴルフはしますか？|Do you play golf?
+水泳が好きです。|I like swimming.
+山登りが趣味です。|Hiking is my hobby.
+サイクリングが好きです。|I enjoy cycling.
+ダンスを習っています。|I'm learning to dance.
+料理教室に通っています。|I attend cooking classes.
+語学学校に通っています。|I attend a language school.
+最近英語を勉強しています。|I've been studying English recently.
+カフェ巡りが好きです。|I enjoy visiting different cafes.
+食べ歩きが好きです。|I enjoy eating out and trying new places.
+美術館巡りが好きです。|I enjoy visiting museums.
+コンサートには行きますか？|Do you go to concerts?
+スポーツ観戦が好きです。|I enjoy watching sports.
+ボランティア活動をしています。|I do volunteer work.
+家庭菜園をやっています。|I do home gardening.
+DIYが好きです。|I enjoy DIY projects.
+コレクションが趣味です。|Collecting things is my hobby.
+何をコレクションしているんですか？|What do you collect?
+スケッチブックに絵を描きます。|I draw in a sketchbook.
+カラオケに行くのが好きです。|I enjoy going to karaoke.
+映画館にはよく行きますか？|Do you often go to the movies?
+Netflixをよく見ます。|I often watch Netflix.
+読書会に参加しています。|I'm part of a book club.
+囲碁をやっています。|I play Go.
+将棋が好きです。|I like shogi.
+料理動画を見るのが好きです。|I enjoy watching cooking videos.`,
+
+emergency:`助けてください！|Help! Please help me!
+救急車を呼んでください。|Please call an ambulance.
+警察を呼んでください。|Please call the police.
+消防車を呼んでください。|Please call the fire department.
+119番に電話してください。|Please call 119.
+110番に電話してください。|Please call 110.
+緊急です。|This is an emergency.
+誰か怪我をしています。|Someone is injured.
+誰か倒れています。|Someone has collapsed.
+心臓発作のようです。|It looks like a heart attack.
+呼吸をしていません。|He or she is not breathing.
+CPRをしてください。|Please perform CPR.
+AEDはどこですか？|Where is the AED?
+出血しています。|There is bleeding.
+骨が折れているかもしれません。|I think I might have broken a bone.
+動かせません。|I can't move.
+意識がありません。|He or she is unconscious.
+泥棒です！|Thief! Stop, thief!
+盗まれました。|Something was stolen from me.
+財布を盗まれました。|My wallet was stolen.
+スマートフォンを盗まれました。|My smartphone was stolen.
+パスポートをなくしました。|I've lost my passport.
+迷子になりました。|I'm lost.
+迷子の子どもがいます。|There is a lost child.
+火事です！|Fire!
+煙が出ています。|There is smoke.
+ガス漏れの臭いがします。|I smell a gas leak.
+地震です！|It's an earthquake!
+津波の可能性があります。|There may be a tsunami risk.
+避難してください。|Please evacuate.
+避難場所はどこですか？|Where is the evacuation site?
+最寄りの病院はどこですか？|Where is the nearest hospital?
+救急対応をしている病院ですか？|Is this hospital open for emergencies?
+夜間診療はありますか？|Do you have after-hours care?
+日本語が話せません。助けてください。|I can't speak Japanese. Please help me.
+通訳を呼んでもらえますか？|Could you call an interpreter?
+大使館の電話番号を教えてください。|Could you give me the phone number for the embassy?
+旅行保険に加入しています。|I have travel insurance.
+何が起きたか説明します。|Let me explain what happened.
+事故現場はここです。|The accident happened here.
+証人がいます。|There are witnesses.
+事故証明書をください。|I need an accident report.
+被害届を出したいです。|I'd like to file a report.
+落とし物センターはどこですか？|Where is the lost and found?
+荷物をホテルに忘れました。|I left my luggage at the hotel.
+カードを止めたいのですが。|I'd like to cancel my card.
+クレジットカード会社に連絡してください。|Please contact my credit card company.
+具合が急に悪くなりました。|I suddenly started feeling ill.
+薬が必要です。|I need medicine.
+インスリンが必要です。|I need insulin.
+アレルギー反応が出ています。|I'm having an allergic reaction.
+エピペンが必要です。|I need an EpiPen.
+溺れています！|Someone is drowning!
+交通事故がありました。|There has been a traffic accident.
+車がぶつかりました。|A car has been hit.`,
+
+opinion:`どう思いますか？|What do you think?
+ご意見をお聞かせください。|Please share your opinion.
+私の意見では〜です。|In my opinion, it's like this.
+〜と思います。|I think so.
+〜と感じます。|I feel this way.
+確かに〜です。|Certainly, that's true.
+おっしゃる通りです。|You're right. I agree with you.
+同意します。|I agree.
+まったくその通りです。|Absolutely. I completely agree.
+同感です。|I feel the same way.
+私もそう思います。|I think so too.
+良いアイデアだと思います。|I think it's a good idea.
+賛成です。|I'm in favor of it.
+それはいいですね。|That sounds good.
+興味深いですね。|That's interesting.
+なるほど。|I see. That makes sense.
+それは知りませんでした。|I didn't know that.
+考えさせてください。|Let me think about it.
+一概には言えません。|I can't say for certain.
+場合によります。|It depends.
+一長一短ありますね。|There are pros and cons.
+一理ありますね。|You have a point.
+そうとも言えますが。|That may be true, but...
+別の見方もあります。|There's another way to look at it.
+少し違うと思います。|I think it's a bit different.
+それは同意しかねます。|I'm afraid I can't agree with that.
+申し訳ないですが違うと思います。|I'm sorry, but I think that's not right.
+それは難しいと思います。|I think that might be difficult.
+懸念があります。|I have some concerns.
+リスクがあると思います。|I think there are risks.
+代替案を提案します。|I'd like to suggest an alternative.
+こうすればどうでしょうか？|How about doing it this way?
+試してみる価値があると思います。|I think it's worth trying.
+詳細を確認する必要があります。|We need to confirm the details.
+データが必要です。|We need data.
+専門家に聞いた方がいいかもしれません。|We might want to consult an expert.
+様子を見てみましょう。|Let's see how it goes.
+もう少し情報が必要です。|I need a bit more information.
+よく調べてから判断します。|I'll look into it before making a decision.
+最終的には〜だと思います。|Ultimately, I think this is right.
+結論を言うと〜です。|In conclusion, here's my point.
+一番重要なのは〜です。|The most important thing is this.
+長期的に見れば〜です。|In the long run, this is what matters.
+視点を変えて考えると〜です。|If we change our perspective, we see this.
+みんなにとって最善な方法を探しましょう。|Let's find the best way for everyone.
+強く同意します。|I strongly agree.
+完全には同意できません。|I can't completely agree.
+それは少し言い過ぎかもしれません。|That might be a bit of an exaggeration.
+もう少し検討が必要です。|We need a bit more consideration.
+メリットとデメリットを比較しましょう。|Let's compare the merits and demerits.
+みなさんの意見はどうですか？|What does everyone else think?
+多数決で決めましょう。|Let's decide by majority vote.
+コンセンサスを取りましょう。|Let's reach a consensus.
+最終決定は誰がしますか？|Who makes the final decision?
+フィードバックをください。|Please give me your feedback.`,
+
+money:`口座を開きたいのですが。|I'd like to open an account.
+普通預金口座をお願いします。|A regular savings account, please.
+ATMはどこですか？|Where is the ATM?
+お金をおろしたいのですが。|I'd like to withdraw some money.
+〜円おろしたいです。|I'd like to withdraw some yen.
+残高を確認したいのですが。|I'd like to check my balance.
+残高はいくらですか？|What is my balance?
+振り込みをしたいのですが。|I'd like to make a transfer.
+振込手数料はいくらですか？|What is the transfer fee?
+両替をしたいのですが。|I'd like to exchange money.
+ドルを円に両替したいです。|I'd like to exchange dollars to yen.
+今日のレートはどのくらいですか？|What is today's exchange rate?
+手数料はいくらですか？|What is the fee?
+クレジットカードで引き出せますか？|Can I withdraw money with a credit card?
+海外送金をしたいのですが。|I'd like to make an international transfer.
+ローンを組みたいのですが。|I'd like to take out a loan.
+住宅ローンについて相談したいです。|I'd like to discuss a home loan.
+金利はどのくらいですか？|What is the interest rate?
+返済期間はどのくらいですか？|What is the repayment period?
+月々の返済はいくらになりますか？|How much will the monthly payment be?
+カードを紛失しました。|I've lost my card.
+カードを止めてください。|Please cancel my card.
+新しいカードを発行してもらえますか？|Could you issue a new card?
+暗証番号を変えたいのですが。|I'd like to change my PIN.
+不正利用があります。|There's been fraudulent use.
+明細を確認したいのですが。|I'd like to check my statement.
+この取引に心当たりがないのですが。|I don't recognize this transaction.
+領収書をください。|Please give me a receipt.
+節約を心がけています。|I'm trying to save money.
+予算を立てています。|I'm making a budget.
+支出を見直しています。|I'm reviewing my spending.
+投資に興味があります。|I'm interested in investing.
+老後のために貯金しています。|I'm saving for retirement.
+保険に入っています。|I have insurance.
+税金の申告をしなければなりません。|I need to file my taxes.
+確定申告はいつですか？|When is the tax filing deadline?
+税理士に相談した方がいいですか？|Should I consult a tax accountant?
+割り勘にしましょう。|Let's split the bill.
+今日は私が払います。|I'll pay today.
+次回はあなたにごちそうします。|I'll treat you next time.
+立て替えておきます。|I'll cover it for now.
+後で精算しましょう。|Let's settle up later.
+おつりをください。|Please give me my change.
+1万円札に両替してもらえますか？|Could you break this 10,000-yen bill for me?
+家計を管理しています。|I'm managing the household budget.
+固定費を削減したいです。|I'd like to reduce fixed costs.
+副収入を得たいです。|I'd like to earn additional income.
+フリーランスで働いています。|I work as a freelancer.
+インボイスを送ります。|I'll send you an invoice.
+見積もりを出してもらえますか？|Could you give me a quote?
+支払いは30日以内にお願いします。|Please pay within 30 days.
+お振込みでお願いします。|Please pay by bank transfer.
+クレジットカード払いはできますか？|Can I pay by credit card?`,
+
+tech:`スマートフォンの調子が悪いです。|My smartphone isn't working properly.
+充電できません。|It won't charge.
+充電が早く減ります。|The battery drains quickly.
+画面が割れました。|The screen cracked.
+アプリがクラッシュします。|The app keeps crashing.
+アプリが開けません。|I can't open the app.
+アプリをアップデートしてください。|Please update the app.
+アプリをインストールしたいです。|I'd like to install an app.
+アプリを削除したいです。|I'd like to delete an app.
+Wi-Fiに繋がりません。|I can't connect to Wi-Fi.
+Wi-Fiのパスワードを教えてください。|What is the Wi-Fi password?
+インターネットの速度が遅いです。|The internet is slow.
+接続が切れています。|The connection keeps dropping.
+再起動してみてください。|Try restarting it.
+設定を確認してください。|Check the settings.
+初期化が必要かもしれません。|You might need to reset it.
+データのバックアップは取りましたか？|Have you backed up your data?
+クラウドに保存されています。|It's saved on the cloud.
+ファイルを共有してもらえますか？|Could you share the file?
+メールに添付しました。|I attached it to the email.
+リンクを送りました。|I sent you the link.
+パスワードを忘れました。|I forgot my password.
+パスワードをリセットしたいです。|I'd like to reset my password.
+二段階認証を設定しています。|I have two-factor authentication set up.
+アカウントがロックされました。|My account has been locked.
+迷惑メールが多いです。|I'm getting a lot of spam.
+フィッシング詐欺に注意してください。|Be careful of phishing scams.
+このウェブサイトは安全ですか？|Is this website safe?
+ウイルス対策ソフトを入れてください。|Please install antivirus software.
+ソフトウェアをアップデートしてください。|Please update your software.
+パソコンが遅いです。|My computer is slow.
+パソコンがフリーズしました。|My computer froze.
+印刷できません。|I can't print.
+プリンターが繋がりません。|The printer isn't connected.
+ファイルが開けません。|I can't open the file.
+データが消えました。|The data is gone.
+復元できますか？|Can it be recovered?
+SNSを使っていますか？|Do you use social media?
+インスタグラムはやっていますか？|Are you on Instagram?
+フォローしてもいいですか？|May I follow you?
+フォローしてください。|Please follow me.
+シェアしてもいいですか？|May I share this?
+タグ付けしてもいいですか？|May I tag you?
+ライブ配信しています。|I'm live streaming.
+動画を編集しています。|I'm editing a video.
+チャンネル登録してください。|Please subscribe to my channel.
+AI（人工知能）はすごいですね。|AI is amazing, isn't it?
+テクノロジーの進化は速いですね。|Technology is evolving so quickly.
+スマートウォッチを使っています。|I use a smartwatch.
+ワイヤレスイヤホンを買いました。|I bought wireless earphones.
+カメラの性能がいいですね。|The camera quality is great.
+データ通信量を節約しています。|I'm saving on data usage.
+アプリのサブスクリプションを解約したいです。|I'd like to cancel my app subscription.
+ストレージがいっぱいです。|My storage is full.
+写真を整理しています。|I'm organizing my photos.
+キャッシュをクリアしてください。|Please clear the cache.`,
+
+social:`パーティーに来てもらえますか？|Would you like to come to the party?
+週末に何か予定はありますか？|Do you have any plans this weekend?
+一緒に飲みに行きませんか？|Would you like to go out for drinks?
+夕食に招待したいのですが。|I'd like to invite you for dinner.
+ぜひ行きます！|I'd love to go!
+喜んで参加します。|I'd be happy to join.
+楽しみにしています。|I'm looking forward to it.
+残念ながら、その日は都合がつきません。|Unfortunately, I can't make it that day.
+先約があります。|I have a prior commitment.
+また別の機会にぜひ。|Let's definitely do it another time.
+乾杯！|Cheers!
+素晴らしいパーティーですね。|This is a wonderful party.
+素敵なお家ですね。|You have a lovely home.
+おいしい料理ですね。|The food is delicious.
+シェフは誰ですか？|Who is the chef?
+レシピを教えてもらえますか？|Could you give me the recipe?
+服が素敵ですね。|You look great.
+その髪型、似合っていますよ。|That hairstyle suits you.
+お土産を持ってきました。|I brought a gift for you.
+つまらないものですが。|It's just a little something.
+気に入ってもらえると嬉しいです。|I hope you like it.
+贈り物をありがとうございます。|Thank you for the gift.
+こんなに気を遣わなくてもよかったのに。|You didn't have to go to all this trouble.
+誕生日おめでとう！|Happy birthday!
+結婚おめでとうございます！|Congratulations on your wedding!
+昇進おめでとうございます！|Congratulations on your promotion!
+おめでとうございます！|Congratulations!
+ご冥福をお祈りします。|I offer my condolences.
+お悔やみ申し上げます。|I'm very sorry for your loss.
+何かお手伝いできることがあれば。|If there's anything I can do, please let me know.
+お見舞いに行ってもいいですか？|May I come visit you?
+一人にしておきたい場合は言ってください。|Let me know if you'd like to be alone.
+何か食べ物を持って行きます。|I'll bring some food over.
+そこにいますよ。|I'll be here for you.
+話を聞いていますよ。|I'm listening.
+あなたの気持ちはわかります。|I understand how you feel.
+時間が解決してくれます。|Time heals all wounds.
+つらいですね。|That must be really tough.
+一緒にいますよ。|I'm here with you.
+何でも言ってください。|Please tell me anything.
+頼ってください。|Please lean on me.
+いつでもそこにいます。|I'll always be here.
+ホームパーティーに来てください。|Please come to my house party.
+お酒は飲みますか？|Do you drink alcohol?
+ソフトドリンクにします。|I'll have a soft drink.
+運転があるので飲めません。|I can't drink because I'm driving.
+最後にもう一杯どうですか？|Would you like one last drink?
+そろそろ帰ります。|I should be heading home soon.
+今夜は楽しかったです。|I had a great time tonight.
+また集まりましょう。|Let's get together again.
+次回は私が幹事をします。|I'll organize the next gathering.
+LINE交換しましょう。|Let's exchange LINE.
+連絡しますね。|I'll be in touch.`
+};
+
+const CATS=[
+  {id:'greeting',   name:'挨拶・自己紹介', emoji:'👋', en:'Greetings'},
+  {id:'shopping',   name:'買い物',         emoji:'🛍️', en:'Shopping'},
+  {id:'restaurant', name:'飲食店・カフェ', emoji:'🍽️', en:'Restaurant'},
+  {id:'transport',  name:'交通・移動',     emoji:'🚆', en:'Transport'},
+  {id:'hotel',      name:'ホテル・宿泊',   emoji:'🏨', en:'Hotel'},
+  {id:'work',       name:'仕事・職場',     emoji:'💼', en:'Work'},
+  {id:'health',     name:'医療・健康',     emoji:'🏥', en:'Health'},
+  {id:'feelings',   name:'感情・気持ち',   emoji:'❤️', en:'Feelings'},
+  {id:'weather',    name:'天気・季節',     emoji:'☀️', en:'Weather'},
+  {id:'hobby',      name:'趣味・余暇',     emoji:'🎯', en:'Hobbies'},
+  {id:'emergency',  name:'緊急・トラブル', emoji:'🆘', en:'Emergency'},
+  {id:'opinion',    name:'意見・議論',     emoji:'💡', en:'Opinion'},
+  {id:'money',      name:'お金・銀行',     emoji:'💰', en:'Money'},
+  {id:'tech',       name:'テクノロジー',   emoji:'📱', en:'Tech'},
+  {id:'social',     name:'パーティー・社交',emoji:'🎉', en:'Social'},
+];
+
+const PHRASES={};
+let totalPhrases=0;
+for(const[k,v]of Object.entries(RAW)){
+  PHRASES[k]=v.trim().split('\n').map(l=>{const p=l.indexOf('|');return[l.slice(0,p),l.slice(p+1)];});
+  totalPhrases+=PHRASES[k].length;
+}
+
+const SK='ep3k_v2';
+let S=JSON.parse(localStorage.getItem(SK)||'null')||{seen:{},miss:[],days:[],rate:'0.9'};
+const save=()=>localStorage.setItem(SK,JSON.stringify(S));
+const pid=(c,i)=>c+'_'+i;
+const today=()=>new Date().toISOString().slice(0,10);
+
+function markSeen(c,i,knew){
+  const id=pid(c,i);
+  if(!S.seen[id])S.seen[id]={k:0,f:0};
+  if(knew)S.seen[id].k++;else S.seen[id].f++;
+  if(!knew){
+    const ph=PHRASES[c][i];
+    if(!S.miss.find(m=>m.c===c&&m.i===i))S.miss.push({c,i,jp:ph[0],en:ph[1]});
+  }
+  const t=today();
+  if(!S.days.includes(t))S.days.push(t);
+  save();
+}
+
+function streak(){
+  const days=[...S.days].sort();
+  if(!days.length)return 0;
+  let n=0,d=new Date();
+  while(true){const s=d.toISOString().slice(0,10);if(days.includes(s)){n++;d.setDate(d.getDate()-1);}else break;}
+  return n;
+}
+function totalSeen(){return Object.keys(S.seen).length;}
+function totalKnown(){return Object.values(S.seen).filter(s=>s.k>0&&s.f===0).length;}
+function overallRate(){let k=0,f=0;for(const s of Object.values(S.seen)){k+=s.k;f+=s.f;}const t=k+f;return t>0?Math.round(k/t*100)+'%':'-';}
+function catProg(c){const ph=PHRASES[c];if(!ph)return 0;const d=ph.filter((_,i)=>S.seen[pid(c,i)]).length;return Math.round(d/ph.length*100);}
+
+let voices=[];
+speechSynthesis.onvoiceschanged=()=>{voices=speechSynthesis.getVoices();};
+setTimeout(()=>{voices=speechSynthesis.getVoices();},600);
+
+function speak(text){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-US';
+  u.rate=parseFloat(S.rate||0.9);
+  const eng=voices.filter(v=>v.lang.startsWith('en'));
+  if(eng.length){const m=eng.find(v=>/samantha|zoe|karen|moira|victoria|ava|female|woman/i.test(v.name))||eng[0];if(m)u.voice=m;}
+  const btn=document.getElementById('speakBtn');
+  if(btn){btn.classList.add('on');btn.innerHTML='<span class="ic">🔉</span> 再生中...';}
+  u.onend=u.onerror=()=>{if(btn){btn.classList.remove('on');btn.innerHTML='<span class="ic">🔊</span> 答えを聞く';}showReveal();};
+  speechSynthesis.speak(u);
+}
+
+let quiz={items:[],cur:0,known:0,forgot:0,missed:[]};
+
+function buildQuiz(catId){
+  let items;
+  if(catId==='_random'){
+    const all=[];for(const[c,ps]of Object.entries(PHRASES))ps.forEach((_,i)=>all.push({c,i}));
+    items=shuffle(all).slice(0,20);
+  }else{
+    items=PHRASES[catId].map((_,i)=>({c:catId,i}));
+    items=shuffle(items).slice(0,20);
+  }
+  quiz={items,cur:0,known:0,forgot:0,missed:[],catId};
+}
+function buildMissedQuiz(){
+  quiz={items:shuffle(S.miss.map(m=>({c:m.c,i:m.i}))).slice(0,20),cur:0,known:0,forgot:0,missed:[],catId:'_miss'};
+}
+function shuffle(a){return[...a].sort(()=>Math.random()-.5);}
+function curPh(){const{c,i}=quiz.items[quiz.cur];return{c,i,jp:PHRASES[c][i][0],en:PHRASES[c][i][1]};}
+
+function showReveal(){
+  const ph=curPh();
+  document.getElementById('qEn').textContent=ph.en;
+  document.getElementById('revealBox').hidden=false;
+  document.getElementById('ratingRow').hidden=false;
+}
+function advance(knew){
+  const{c,i}=quiz.items[quiz.cur];
+  markSeen(c,i,knew);
+  if(knew)quiz.known++;else{quiz.forgot++;quiz.missed.push(quiz.items[quiz.cur]);}
+  quiz.cur++;
+  if(quiz.cur>=quiz.items.length)showResult();else showQuestion();
+}
+function showQuestion(){
+  const ph=curPh();
+  const pct=Math.round(quiz.cur/quiz.items.length*100);
+  document.getElementById('qBar').style.width=pct+'%';
+  document.getElementById('qNum').textContent=(quiz.cur+1)+'/'+quiz.items.length;
+  document.getElementById('qTag').textContent=CATS.find(c=>c.id===ph.c)?.name||'';
+  document.getElementById('qJp').textContent=ph.jp;
+  document.getElementById('revealBox').hidden=true;
+  document.getElementById('ratingRow').hidden=true;
+  const btn=document.getElementById('speakBtn');
+  btn.classList.remove('on');
+  btn.innerHTML='<span class="ic">🔊</span> 答えを聞く';
+}
+function showResult(){
+  const tot=quiz.items.length,pct=Math.round(quiz.known/tot*100);
+  document.getElementById('resBig').innerHTML=pct+'<small>%</small>';
+  document.getElementById('resMsg').textContent=pct>=90?'素晴らしい！完璧に近いです！':pct>=70?'よくできました！':pct>=50?'もう少し！続けて練習しましょう。':'復習が必要です。もう一度練習しましょう。';
+  const ml=document.getElementById('missList'),mt=document.getElementById('missTitle');
+  ml.innerHTML='';
+  if(quiz.missed.length){mt.hidden=false;quiz.missed.forEach(({c,i})=>{const ph=PHRASES[c][i];const d=document.createElement('div');d.className='miss-item';d.innerHTML=`<button class="speak-sm" onclick="speak(${JSON.stringify(ph[1])})">🔊</button><div class="jp">${ph[0]}</div><div class="en">${ph[1]}</div>`;ml.appendChild(d);});}else{mt.hidden=true;}
+  document.getElementById('resRetry').disabled=quiz.missed.length===0;
+  showSec('result');
+}
+
+function showSec(id){
+  ['home','quiz','result','review','settings'].forEach(s=>document.getElementById('sec-'+s).hidden=s!==id);
+  document.querySelectorAll('.bnav button').forEach(b=>b.setAttribute('aria-current',b.dataset.sec===id?'page':'false'));
+  if(id==='home')updateHome();
+  if(id==='review')updateReview();
+}
+
+function updateHome(){
+  document.getElementById('streakNum').textContent=streak();
+  document.getElementById('stTotal').textContent=totalSeen();
+  document.getElementById('stRate').textContent=overallRate();
+  document.getElementById('stMaster').textContent=totalKnown();
+  const grid=document.getElementById('catGrid');
+  grid.innerHTML='';
+  CATS.forEach(cat=>{
+    const prog=catProg(cat.id),count=PHRASES[cat.id]?.length||0;
+    const btn=document.createElement('button');
+    btn.className='cat-btn';
+    btn.innerHTML=`<div class="emo">${cat.emoji}</div><div class="nm">${cat.name}</div><div class="sub">${cat.en}</div><div class="cnt">${count}フレーズ</div><div class="pbar"><div class="pfill" style="width:${prog}%"></div></div>`;
+    btn.onclick=()=>startQuiz(cat.id);
+    grid.appendChild(btn);
+  });
+}
+
+function updateReview(){
+  const list=document.getElementById('revList'),empty=document.getElementById('revEmpty');
+  list.innerHTML='';
+  if(!S.miss.length){empty.hidden=false;return;}
+  empty.hidden=true;
+  S.miss.forEach(m=>{
+    const d=document.createElement('div');d.className='rev-item';
+    d.innerHTML=`<div class="content"><div class="jp">${m.jp}</div><div class="en">${m.en}</div></div><button class="sp" onclick="speak(${JSON.stringify(m.en)})">🔊</button>`;
+    list.appendChild(d);
+  });
+}
+
+function startQuiz(catId){buildQuiz(catId);showSec('quiz');showQuestion();}
+
+document.getElementById('btnRand').onclick=()=>startQuiz('_random');
+document.getElementById('speakBtn').onclick=()=>{const ph=curPh();speak(ph.en);};
+document.getElementById('btnKnew').onclick=()=>advance(true);
+document.getElementById('btnForgot').onclick=()=>advance(false);
+document.getElementById('quizBack').onclick=()=>showSec('home');
+document.getElementById('resHome').onclick=()=>showSec('home');
+document.getElementById('resRetry').onclick=()=>{quiz.items=quiz.missed;quiz.cur=0;quiz.known=0;quiz.forgot=0;quiz.missed=[];if(quiz.items.length){showSec('quiz');showQuestion();}};
+document.getElementById('reviewStart').onclick=()=>{buildMissedQuiz();showSec('quiz');showQuestion();};
+document.querySelectorAll('.bnav button').forEach(b=>b.onclick=()=>showSec(b.dataset.sec));
+document.getElementById('rateSelect').onchange=e=>{S.rate=e.target.value;save();};
+document.getElementById('totalCount').textContent=totalPhrases+'フレーズ';
+document.getElementById('resetBtn').onclick=()=>document.getElementById('resetConf').hidden=false;
+document.getElementById('resetNo').onclick=()=>document.getElementById('resetConf').hidden=true;
+document.getElementById('resetYes').onclick=()=>{localStorage.removeItem(SK);location.reload();};
+document.getElementById('rateSelect').value=S.rate||'0.9';
+updateHome();
+</script>
+</body>
+</html>
